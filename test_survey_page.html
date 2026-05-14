@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Greenback Revolution | Survey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e8e3d8; font-family: 'Instrument Sans', Arial, sans-serif; min-height: 100vh; }
+
+    /* ── Header ── */
+    .gbr-header {
+      background: #0d1f3c;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .gbr-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .gbr-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .gbr-logo-pig {
+      height: 48px;
+      width: auto;
+    }
+    .gbr-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .gbr-logo-text span:first-child {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+    .gbr-logo-text span:last-child {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+    .gbr-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .gbr-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #0d1f3c;
+      border: none;
+      border-radius: 99px;
+      padding: 10px 18px;
+      font-family: 'Instrument Sans', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .gbr-nav-btn.outline {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+    .gbr-nav-icon {
+      font-size: 15px;
+    }
+    .gbr-linkedin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* Mobile header */
+    .gbr-header-mobile {
+      display: none;
+      background: #0d1f3c;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .gbr-header-mobile-inner {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .gbr-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .gbr-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* ── Page content ── */
+    .gbr-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .gbr-page-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b5e7e;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+    .gbr-page-title {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #0d1f3c;
+      margin-bottom: 48px;
+    }
+    .gbr-survey-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ── Footer ── */
+    .gbr-footer {
+      background: #0d1f3c;
+      color: #fff;
+      padding: 48px 32px;
+    }
+    .gbr-footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .gbr-footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      margin-bottom: 4px;
+    }
+    .gbr-footer-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      max-width: 460px;
+    }
+    .gbr-footer-contact {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-top: 8px;
+    }
+    .gbr-footer-email {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+    }
+    .gbr-footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .gbr-header { display: none; }
+      .gbr-header-mobile { display: block; }
+      .gbr-page { padding: 24px 16px 60px; }
+      .gbr-page-title { font-size: 26px; margin-bottom: 28px; }
+      .gbr-footer { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Desktop header -->
+  <header class="gbr-header">
+    <div class="gbr-header-inner">
+      <a href="https://greenbackrevolution.ca/" class="gbr-logo">
+        <img class="gbr-logo-pig" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778291354/1_coin_base_zl9z1y.png" alt="Greenback Revolution" onerror="this.style.display='none'">
+        <div class="gbr-logo-text">
+          <span>Greenback</span>
+          <span>Revolution</span>
+        </div>
+      </a>
+      <nav class="gbr-nav">
+        <a href="https://greenbackrevolution.ca/#services-2" class="gbr-nav-btn">
+          See our sustainable investing strategies
+          <span class="gbr-nav-icon">↗</span>
+        </a>
+        <a href="https://forms.gle/G8v4vdsYrSmxVRhi8" class="gbr-nav-btn outline">
+          Get involved
+          <span class="gbr-nav-icon">📢</span>
+        </a>
+        <a href="https://www.linkedin.com/company/greenback-revolution/" class="gbr-linkedin" target="_blank">in</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile header -->
+  <header class="gbr-header-mobile">
+    <div class="gbr-header-mobile-inner">
+      <a href="https://greenbackrevolution.ca/" class="gbr-logo">
+        <div class="gbr-logo-text">
+          <span>Greenback</span>
+          <span>Revolution</span>
+        </div>
+      </a>
+      <div class="gbr-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page content -->
+  <main class="gbr-page">
+    <div class="gbr-page-label">Survey</div>
+    <div class="gbr-page-title">Investing for Impact</div>
+    <div class="gbr-survey-wrap">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Bangers&display=swap" rel="stylesheet">
+<style>
+#survey-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+#survey-wrap {
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  width: 100%; max-width: 680px; margin: 0 auto;
+  height: 520px; border-radius: 28px; overflow: hidden;
+  background: linear-gradient(160deg, #8B7EC8 0%, #9BAAA8 52%, #96C4A8 100%);
+  display: flex;
+}
+#survey-viewport { flex: 1; overflow: hidden; position: relative; }
+/* ── TUNE THESE to adjust right-column position ── */
+.sv-content-block {
+  width: 260px;          /* width of the whole right-column content block */
+  margin-left: auto;     /* pushes block to the right */
+  margin-right: 32px;    /* gap from right edge — decrease to push further right */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centre image/pill within the block */
+}
+#survey-panels { display: flex; flex-direction: column; transition: transform 0.55s cubic-bezier(0.65,0,0.35,1); }
+.sv-panel {
+  height: 520px; min-height: 520px;
+  position: relative; /* needed for absolute child positioning */
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   TUNE THESE — all values independently adjustable
+   ══════════════════════════════════════════════════ */
+
+/* Left text block */
+.sv-left {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  left: 20px;           /* ← shift left column left/right */
+  width: 36%;           /* ← change to make text wider/narrower */
+  padding: 0 16px 0 36px;
+}
+
+/* Right content block */
+.sv-content-block {
+  position: absolute;
+  right: 23px;          /* ← decrease to push further right, increase for more margin */
+  top: 40px;            /* ← vertical position in px — decrease to move UP, increase to move DOWN */
+  width: 260px;         /* ← change to make block wider/narrower */
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.sv-right { flex: 1; position: relative; }
+
+.sv-step { font-size: 11px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+.sv-heading { font-size: 18px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 14px; }
+.sv-body { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.65; }
+
+/* Image — centred, fixed height */
+.sv-image-area {
+  width: 100%; height: 200px; display: flex;
+  align-items: flex-end; justify-content: center;
+  overflow: hidden;
+}
+.sv-image-area img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+/* ── Q1 answer pill ── */
+.sv-answer {
+  width: 55%; flex-shrink: 0; margin-top: 0px;
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 99px; padding: 8px 20px;
+}
+.sv-dollar { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.7); flex-shrink: 0; }
+.sv-input {
+  font-size: 16px; font-weight: 500; color: #fff;
+  background: transparent; border: none; outline: none;
+  width: 100%; font-family: 'Instrument Sans', Arial, sans-serif;
+  caret-color: rgba(255,255,255,0.8); padding: 0;
+}
+.sv-input::placeholder { color: rgba(255,255,255,0.4); font-weight: 400; }
+
+/* ── Q2 bottom — centred, 90% wide, taller text ── */
+.sv-bottom {
+  width: 100%; flex-shrink: 0; margin-top: 12px;
+  display: flex; flex-direction: column; overflow: visible;
+}
+.sv-val-display {
+  font-size: 30px; font-weight: 600; color: #fff;
+  text-align: center; margin-bottom: 15px;
+}
+.sv-pill-wrap {
+  position: relative; background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3); border-radius: 99px;
+  padding: 5px; cursor: pointer; user-select: none; flex-shrink: 0;
+}
+.sv-pill-body { height: 26px; position: relative; display: flex; align-items: center; }
+.sv-end-label {
+  position: absolute; font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.6); top: 50%; transform: translateY(-50%);
+  pointer-events: none; z-index: 1;
+}
+.sv-end-label.left { left: 14px; }
+.sv-end-label.right { transform: translate(-50%,-50%); }
+.sv-pill-thumb { position: absolute; top: 4px; height: calc(100% - 8px); width: 38px; background: #fff; border-radius: 99px; pointer-events: none; z-index: 2; }
+.sv-pill-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; margin: 0; z-index: 3; }
+/* overflow: visible so left marker label isn't clipped */
+.sv-markers-wrap { position: relative; margin-top: 4px; height: 64px; overflow: visible; z-index: 1; }
+.sv-marker-item { position: absolute; top: 0; z-index: 1; }
+.sv-tick { position: absolute; width: 1.5px; background: rgba(255,255,255,0.4); top: 0; height: 12px; right: 0; }
+.sv-tick.active { background: rgba(255,255,255,0.95); }
+.sv-label { position: absolute; top: 14px; font-size: 12px; color: rgba(255,255,255,0.72); line-height: 1.4; white-space: nowrap; text-align: right; right: 0; z-index: 1; }
+.sv-label.active { color: #fff; font-weight: 600; }
+
+/* Scroller */
+#survey-scroller {
+  width: 27px; display: flex; flex-direction: column;
+  align-items: center; padding: 14px 0;
+  background: rgba(0,0,0,0.1); flex-shrink: 0;
+  border-radius: 0 28px 28px 0;
+}
+#survey-track {
+  width: 12px; flex: 1; background: rgba(255,255,255,0.2);
+  border-radius: 99px; position: relative; cursor: pointer;
+}
+#survey-thumb-el {
+  width: 12px; border-radius: 99px; background: #fff;
+  position: absolute; top: 0; cursor: grab;
+  transition: top 0.45s cubic-bezier(0.65,0,0.35,1);
+}
+
+/* ── Q2 stepper buttons (mobile only, hidden by default) ── */
+.q2-step-btn {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: #fff; font-size: 28px; font-weight: 300;
+  line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, opacity 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.q2-step-btn:active { background: rgba(255,255,255,0.35); }
+.q2-step-btn.disabled { opacity: 0.3; pointer-events: none; }
+
+/* ── Q2 info boxes (mobile only) ── */
+.q2-info-pill {
+  display: flex; align-items: flex-start;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px; padding: 6px 9px;
+  font-size: 11px; color: rgba(255,255,255,0.85);
+  line-height: 1.4; width: 60%;
+}
+.q2-info-pill.active { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.55); color: #fff; }
+
+/* ── Mobile responsive ── */
+/* Email placeholder colour */
+#submit-email::placeholder { color: #e3ece9; opacity: 1; }
+/* Fix autofill/password-manager injected text colour */
+#survey-wrap input:-webkit-autofill,
+#survey-wrap input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ── Corner nav buttons (mobile only, hidden on desktop) ── */
+.corner-btn {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  width: 74px;
+  padding: 15.6px 0 !important;
+  text-align: center;
+  background: #e8e4dc;
+  color: #5a5a5a;
+  border: none; border-radius: 99px;
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.01em;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  z-index: 10;
+}
+.corner-btn-left { left: 24px; }
+.corner-btn-right { right: 24px; }
+/* corner-btn hover — only on real pointer devices, not iOS (which uses hover:none) */
+@media (hover: hover) {
+  .corner-btn:hover { background: #EF9F27; color: #fff; }
+}
+/* ── Mobile nav button base style (hidden on desktop) ── */
+.mobile-nav { display: none; }
+.mobile-nav-btn {
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: #5a5a5a; background: #e8e4dc;
+  border: none; border-radius: 99px;
+  padding: 11px 26px; cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.mobile-nav-btn.hidden { visibility: hidden; }
+
+/* ── Pill sliders: taller touch target on mobile ── */
+.sv-pill-wrap-mobile {
+  padding: 8px !important;
+}
+
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  #survey-wrap {
+    max-width: 100%;
+    border-radius: 28px;
+  }
+  .sv-panel {
+    height: 100svh;
+    min-height: 100svh;
+    flex-direction: column;
+  }
+  .sv-left {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    left: auto !important;
+    width: 100% !important;
+    padding: 20px 24px 8px 24px !important;
+    justify-content: flex-start !important;
+    flex-shrink: 0;
+  }
+  .sv-right {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 80px;
+  }
+  .sv-content-block {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    width: 88% !important;
+    margin: 4px auto 8px auto !important;
+  }
+  /* Image area smaller on mobile */
+  .sv-image-area { height: 110px !important; }
+  /* Q3 scene — shrink clip window and scale scene */
+  #q3-image-area { display: flex; align-items: center; justify-content: center; height: 170px !important; overflow: hidden; }
+  #q3-clip-window { width: 200px !important; height: 154px !important; }
+  #q3-scene { transform: scale(0.385) !important; transform-origin: top left !important; }
+  /* Scroller hidden on mobile */
+  #survey-scroller { display: none !important; }
+  /* Mobile nav buttons - base display */
+  .mobile-nav { display: flex !important; justify-content: center; align-items: center; padding: 10px 24px 18px 24px; flex-shrink: 0; }
+  .mobile-nav-btn { font-size: 14px; padding: 11px 26px; }
+  /* Font adjustments */
+  .sv-heading { font-size: 16px !important; }
+  .sv-body { font-size: 12px !important; line-height: 1.5 !important; }
+  .sv-val-display { font-size: 22px !important; margin-bottom: 8px !important; }
+  /* Q2: hide long benchmark labels on mobile, keep ticks */
+  .sv-markers-wrap { height: 44px !important; }
+  .sv-label { font-size: 10px !important; white-space: normal !important; max-width: 120px !important; line-height: 1.3 !important; }
+  /* Taller pill sliders for easier touch */
+  .sv-pill-wrap { padding: 8px !important; }
+  .sv-pill-body { height: 32px !important; }
+  .sv-pill-thumb { top: 5px !important; height: calc(100% - 10px) !important; width: 44px !important; }
+  /* Q3 smaller slider pills */
+  #q3-term-pill, #q3-risk-pill { padding: 6px !important; }
+  #q3-term-pill > div:first-child, #q3-risk-pill > div:first-child { height: 28px !important; }
+  #q3-term-thumb, #q3-risk-thumb { top: 4px !important; height: calc(100% - 8px) !important; width: 36px !important; }
+  /* Title/submit/thankyou centred panels */
+  .sv-panel[style*="justify-content:center"] { padding: 28px 20px; }
+  /* Q2 bottom spacing */
+  .sv-bottom { margin-top: 6px !important; }
+  /* Q2 mobile: hide slider, show stepper + info box */
+  #q2-pill { display: none !important; }
+  #q2-markers { display: none !important; }
+  #q2-stepper { display: flex !important; }
+  #q2-info-box { display: flex !important; }
+  #q2-image-row { align-items: center !important; justify-content: center !important; }
+  /* Q3 mobile: hide sliders, show steppers, give canvas more bottom room */
+  #q3-term-slider-wrap { display: none !important; }
+  #q3-risk-slider-wrap { display: none !important; }
+  #q3-term-stepper { display: flex !important; }
+  #q3-risk-stepper { display: flex !important; }
+  #q3-image-area { height: 175px !important; margin-bottom: 8px !important; }
+  #q3-clip-window { height: 179px !important; }
+  /* Q3 stepper buttons smaller on mobile */
+  #q3-term-stepper .q2-step-btn,
+  #q3-risk-stepper .q2-step-btn { width: 45px !important; height: 45px !important; font-size: 24px !important; }
+  /* Q3 heading narrower on mobile to force "invest" to wrap — centred */
+  #q3-heading-mobile { max-width: 72% !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+  /* Q3 bubble group: scale up and shift 6px right (was 8, minus 2), 8px up */
+  #q3-bubble-group { transform: scale(1.1664) translate(6px, -26px) !important; transform-origin: top right !important; }
+  /* Corner buttons and action buttons font size on mobile */
+  .corner-btn, #begin-btn, #submit-btn { font-size: 12.15px !important; }
+  /* Begin/submit desktop buttons size */
+  #begin-btn, #submit-btn { padding: 11.34px 25.92px !important; }
+  /* Q2 info pill font bigger and box larger on mobile */
+  .q2-info-pill { font-size: 13px !important; padding: 9px 12px !important; }
+  /* Stepper ± buttons and indicator labels: prevent text selection */
+  .q2-step-btn, #q2-val, #q3-term-display, #q3-risk-display { user-select: none !important; -webkit-user-select: none !important; }
+  /* Checkboxes bigger on mobile, text shifted right, checkboxes shifted left */
+  #submit-contact, #submit-policy { width: 19px !important; height: 19px !important; margin-left: -2px; }
+  #submit-contact + span, #submit-policy + span { padding-left: 6px; }
+  #submit-btn { margin-top: 2px !important; }
+  /* Corner buttons: fixed to viewport bottom corners — bypasses all ancestor positioning issues */
+  .corner-btn { display: block !important; position: fixed !important; bottom: 20px !important; }
+  .sv-panel { position: relative !important; }
+  /* svh fallback for older Android */
+  #survey-wrap { height: 100vh; height: 100svh; }
+  .sv-panel { height: 100vh; height: 100svh; min-height: 100vh; min-height: 100svh; }
+  /* Scale font sizes with viewport width for better small-screen fit */
+  .sv-heading { font-size: clamp(13px, 4vw, 18px) !important; }
+  .sv-body { font-size: clamp(11px, 3vw, 14px) !important; line-height: 1.5 !important; }
+  .sv-step { font-size: clamp(9px, 2.5vw, 12px) !important; }
+  .sv-val-display { font-size: clamp(18px, 5vw, 24px) !important; margin-bottom: 8px !important; }
+  /* Scale corner buttons with viewport */
+  .corner-btn { width: clamp(60px, 18vw, 90px) !important; font-size: clamp(10px, 3vw, 13px) !important; }
+  /* Allow Q3 stepper buttons to not be clipped by sv-right */
+  .sv-right { overflow: visible !important; }
+  #submit-error { width: calc(100% + 20px) !important; margin-left: -10px !important; }
+  /* Step label tighter */
+  .sv-step { margin-bottom: 8px !important; }
+}
+/* ── Stepper progress pill — mobile only ── */
+.stepper-progress { display: none; }
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  .stepper-progress {
+    display: block;
+    width: 48px; height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 99px;
+    margin: 0 auto 6px auto;
+    overflow: hidden;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .stepper-progress.visible { opacity: 1; }
+}
+.stepper-progress-fill {
+  height: 100%;
+  background: rgba(255,255,255,0.7);
+  border-radius: 99px;
+  width: 0%;
+  transition: width 0.15s ease;
+}
+/* ══ TUNE THIS — button distance from bottom on mobile (all pages) ══ */
+:root { --btn-bottom: 5px; }
+/* Desktop submit button hidden on mobile; mobile nav hidden on desktop */
+#submit-mobile-nav { display: none; }
+.submit-btn-desktop { display: inline-block; }
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  .submit-btn-desktop { display: none !important; }
+}
+.term-trigger {
+  cursor: pointer;
+  position: relative;
+  z-index: 50;
+}
+.term-underline {
+  text-decoration: underline;
+  text-decoration-color: #6c6689;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s;
+}
+.term-trigger:hover .term-underline,
+.term-trigger.tooltip-open .term-underline {
+  text-decoration-color: #EF9F27;
+}
+.submit-link {
+  transition: color 0.15s;
+}
+.submit-link:hover { color: #EF9F27 !important; }
+.term-tooltip {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%; transform: translateX(-50%);
+  background: #6c6689;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 12px; font-weight: 400;
+  color: #fff; line-height: 1.5;
+  width: 220px;
+  pointer-events: none;
+  z-index: 100;
+  white-space: normal;
+}
+.term-trigger:hover .term-tooltip,
+.term-trigger.tooltip-open .term-tooltip {
+  display: block;
+}
+</style>
+
+<div id="survey-wrap">
+  <div id="survey-viewport">
+    <div id="survey-panels">
+
+      <!-- Title -->
+      <div class="sv-panel" style="display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;padding:44px 60px;max-width:500px;">
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:18px;">Survey</div>
+          <div style="font-size:28px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:12px;">Investing for Impact</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.78);line-height:1.65;margin-bottom:36px;">Where you put your money matters. Tell us about the kind of impact you would like to have with your money, and enter into a draw to win <strong>$1,000</strong> to invest into building sustainable projects.</div>
+          <button id="begin-btn" style="
+            font-family:'Instrument Sans',Arial,sans-serif;
+            font-size:15px;font-weight:600;
+            color:#5a5a5a;
+            background:#e8e4dc;
+            border:none;border-radius:99px;
+            padding:14px 32px;
+            cursor:pointer;
+            letter-spacing:0.01em;
+            transition:background 0.2s, color 0.2s;
+            display:inline-block;
+          ">Begin</button>
+          <div style="font-size:13px;color:rgba(255,255,255,0.78);line-height:1.5;margin-top:14px;">Survey length: 2 minutes</div>
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="sv-panel">
+        <div class="sv-left">
+          <div class="sv-step">Question 1 of 3</div>
+          <div class="sv-heading">What's the total net worth of your <span class="term-trigger" id="q1-term"><span class="term-underline">financial assets</span>?<span class="term-tooltip" style="padding:16px 18px !important;">Financial assets include chequing accounts, savings accounts, tax-advantaged accounts, mutual and exchange-traded funds, stocks, and bonds.</span></span></div>
+        </div>
+        <div class="sv-right">
+          <div class="sv-content-block">
+          <div class="sv-image-area"><img id="q1-coin" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778291354/1_coin_base_zl9z1y.png" alt="" style="display:block;"></div>
+          <div style="height:48px;flex-shrink:0;"></div>
+          <div class="sv-answer" style="padding-left: 7px;">
+            <span class="sv-dollar">$</span>
+            <input class="sv-input" id="q1-input" type="text" inputmode="numeric" placeholder="0" maxlength="13" autocomplete="off">
+          </div>
+          </div><!-- end sv-content-block -->
+        </div><!-- end sv-right -->
+        <button class="corner-btn corner-btn-right" onclick="goMobile(1);">Next</button>
+      </div>
+
+      <!-- Q2 -->
+      <div class="sv-panel">
+        <div class="sv-left">
+          <div class="sv-step">Question 2 of 3</div>
+          <div class="sv-heading">What share of your financial assets would you want to invest into building <span class="term-trigger" id="q2-term"><span class="term-underline">sustainable infrastructure</span>?<span class="term-tooltip" style="padding:16px 18px !important;">Sustainable infrastructure includes clean power generation and transmission, affordable housing, healthcare facilities, and education facilities.</span></span></div>
+        </div>
+        <div class="sv-right">
+          <div class="sv-content-block">
+
+          <!-- Desktop: coin alone -->
+          <div id="q2-image-row" style="display:flex;align-items:flex-end;justify-content:center;width:100%;">
+            <div class="sv-image-area" style="flex:0 0 auto;width:auto;"><img id="q2-coin" src="" alt="" style="display:none;max-height:110px;"></div>
+          </div>
+
+          <div class="sv-bottom">
+            <div class="stepper-progress" id="q2-progress" style="margin:0 auto 4px auto;"><div class="stepper-progress-fill" id="q2-progress-fill"></div></div>
+            <div class="sv-val-display" id="q2-val" style="white-space:nowrap;">Click or drag slider</div>
+
+            <!-- Desktop slider -->
+            <div class="sv-pill-wrap" id="q2-pill" style="margin-top:8px;">
+              <div class="sv-pill-body">
+                <span class="sv-end-label left">0%</span>
+                <span class="sv-end-label right" id="q2-label-50">50%</span>
+              </div>
+              <div class="sv-pill-thumb" id="q2-thumb" style="left:3px;"></div>
+              <input class="sv-pill-input" type="range" id="q2-range" min="0" max="50" value="0" step="1">
+            </div>
+            <div class="sv-markers-wrap" id="q2-markers">
+              <div class="sv-marker-item" id="q2-mk0">
+                <div class="sv-tick" id="q2-tick0"></div>
+                <div class="sv-label" id="q2-lbl0">Share that Canadian<br>asset managers are<br>currently investing into<br>sustainable infrastructure</div>
+              </div>
+              <div class="sv-marker-item" id="q2-mk1">
+                <div class="sv-tick" id="q2-tick1"></div>
+                <div class="sv-label" id="q2-lbl1">Share that would meet<br>financing needs for clean<br>energy and affordable housing<br>infrastructure, if all Canadian<br>households invested similarly</div>
+              </div>
+            </div>
+
+            <!-- Mobile ± buttons (hidden on desktop) -->
+            <div id="q2-stepper" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin-top:4px;">
+              <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+                <button id="q2-minus" class="q2-step-btn" aria-label="Decrease">−</button>
+                <button id="q2-plus"  class="q2-step-btn" aria-label="Increase">+</button>
+              </div>
+            </div>
+            <!-- Mobile info box (hidden on desktop, appears at thresholds) -->
+            <div id="q2-info-box" style="display:none;flex-direction:column;gap:5px;margin-top:8px;align-items:center;width:100%;">
+              <div class="q2-info-pill" id="q2-info-0" style="display:none;">Beats current share invested by Canadian asset managers</div>
+              <div class="q2-info-pill" id="q2-info-1" style="display:none;">Meets Canada's clean energy and affordable housing investment needs</div>
+            </div>
+
+          </div>
+          </div><!-- end sv-content-block -->
+        </div><!-- end sv-right -->
+        <button class="corner-btn corner-btn-left" onclick="goMobile(0);">Back</button>
+        <button class="corner-btn corner-btn-right" onclick="goMobile(2);">Next</button>
+      </div>
+
+      <!-- Q3 -->
+      <div class="sv-panel">
+        <div class="sv-left">
+          <div class="sv-step">Question 3 of 3</div>
+          <div class="sv-heading" id="q3-heading-mobile">What sort of sustainable infrastructure <span class="term-trigger" id="q3-term"><span class="term-underline">bond</span><span class="term-tooltip" style="padding:16px 18px !important;width:260px !important;">When you invest into a bond, the money is loaned to a company, and the company uses the money to complete some sort of project. In exchange, the company pays you a percentage of the amount you invested annually, in addition to returning the full amount on the bond's end date.</span></span> would you invest in?</div>
+        </div>
+        <div class="sv-right">
+          <div class="sv-content-block">
+            <div id="q3-image-area" style="width:100%;display:flex;align-items:flex-end;justify-content:center;">
+              <!-- 260x200 clip window; inner scene is 520x400 scaled down 50% -->
+              <div id="q3-clip-window" style="width:260px;height:233px;overflow:hidden;flex-shrink:0;">
+                <div id="q3-scene" style="position:relative;width:520px;height:400px;transform:scale(0.5);transform-origin:top left;">
+                  <img style="position:absolute;width:131px;left:29px;top:163px;z-index:2;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778458028/stepping_stone_rgvlzo.png">
+                  <img id="q3-dam-img" style="position:absolute;width:238px;left:-8px;top:108px;z-index:3;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778458030/Safe_beaver_dam_kmpwaj.png">
+                  <img style="position:absolute;width:52px;left:160px;bottom:132px;z-index:2;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778458028/stepping_stone_rgvlzo.png">
+                  <img style="position:absolute;width:70px;left:215px;bottom:82px;z-index:2;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778458028/stepping_stone_rgvlzo.png">
+                  <img style="position:absolute;width:90px;left:275px;bottom:27px;z-index:2;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778458028/stepping_stone_rgvlzo.png">
+                  <img style="position:absolute;width:242px;left:-6px;bottom:-64px;z-index:3;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778458028/stepping_stone_rgvlzo.png">
+                  <img id="q3-sack-img" style="position:absolute;width:449px;left:-100px;bottom:-88px;z-index:4;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778291929/Money_sack_3_years_stoqid.png">
+                  <div id="q3-bubble-group" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:6;">
+                    <img id="q3-bubble-img" style="position:absolute;width:363px;right:-10px;top:3px;z-index:5;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778509497/speech_bubble_idrulh.png">
+                    <div id="q3-bubble-text" style="position:absolute;right:24px;top:68px;width:285px;height:130px;display:flex;align-items:center;z-index:6;pointer-events:auto;">
+                      <div class="bubble-text-inner" style="font-family:'Bangers',cursive;font-size:23px;font-weight:400;letter-spacing:0.03em;color:#333;line-height:1.55;text-align:left;width:100%;">
+                        Tell me how long and how safe you would like your bond investment to be.
+                      </div>
+                    </div>
+                  </div>
+                  <img style="position:absolute;width:200px;right:0px;bottom:-65px;z-index:5;" src="https://res.cloudinary.com/dkcw63bii/image/upload/v1778455267/Beaver_ll8ukf.png">
+                </div>
+              </div>
+            </div>
+
+            <!-- Q3 Answer: two sliders (desktop) + steppers (mobile) -->
+            <div style="width:100%;margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+
+              <!-- Slider 1: Term (3–7 years) -->
+              <div style="width:100%;">
+                <div class="stepper-progress" id="q3-term-progress" style="margin:0 auto 4px auto;"><div class="stepper-progress-fill" id="q3-term-progress-fill"></div></div>
+                <div style="font-size:15px;font-weight:600;color:#fff;text-align:center;margin-bottom:6px;" id="q3-term-display">Click or drag slider</div>
+                <!-- Desktop slider -->
+                <div id="q3-term-slider-wrap" style="width:72%;margin:0 auto;">
+                <div style="position:relative;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:99px;padding:3px;cursor:pointer;user-select:none;" id="q3-term-pill">
+                  <div style="height:18px;position:relative;display:flex;align-items:center;">
+                    <span style="position:absolute;left:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">3yr</span>
+                    <span style="position:absolute;right:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">7yr</span>
+                  </div>
+                  <div style="position:absolute;top:3px;height:calc(100% - 6px);width:28px;background:#fff;border-radius:99px;pointer-events:none;z-index:2;" id="q3-term-thumb"></div>
+                  <input type="range" min="3" max="7" value="3" step="1" id="q3-term-range" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;margin:0;z-index:3;">
+                </div>
+                </div>
+                <!-- Mobile stepper -->
+                <div id="q3-term-stepper" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+                  <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+                    <button id="q3-term-minus" class="q2-step-btn" aria-label="Decrease term">−</button>
+                    <button id="q3-term-plus"  class="q2-step-btn" aria-label="Increase term">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slider 2: Risk (0.0–1.0%) -->
+              <div style="width:100%;">
+                <div class="stepper-progress" id="q3-risk-progress" style="margin:0 auto 4px auto;"><div class="stepper-progress-fill" id="q3-risk-progress-fill"></div></div>
+                <div style="font-size:15px;font-weight:600;color:#fff;text-align:center;margin-bottom:6px;" id="q3-risk-display">Click or drag slider</div>
+                <!-- Desktop slider -->
+                <div id="q3-risk-slider-wrap" style="width:72%;margin:0 auto;">
+                <div style="position:relative;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:99px;padding:3px;cursor:pointer;user-select:none;" id="q3-risk-pill">
+                  <div style="height:18px;position:relative;display:flex;align-items:center;">
+                    <span style="position:absolute;left:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">0%</span>
+                    <span style="position:absolute;right:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">1%</span>
+                  </div>
+                  <div style="position:absolute;top:3px;height:calc(100% - 6px);width:28px;background:#fff;border-radius:99px;pointer-events:none;z-index:2;" id="q3-risk-thumb"></div>
+                  <input type="range" min="0" max="5" value="0" step="1" id="q3-risk-range" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;margin:0;z-index:3;">
+                </div>
+                </div>
+                <!-- Mobile stepper -->
+                <div id="q3-risk-stepper" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+                  <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+                    <button id="q3-risk-minus" class="q2-step-btn" aria-label="Decrease risk">−</button>
+                    <button id="q3-risk-plus"  class="q2-step-btn" aria-label="Increase risk">+</button>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- end sliders wrapper -->
+          </div><!-- end sv-content-block -->
+        </div><!-- end sv-right -->
+        <button class="corner-btn corner-btn-left" onclick="goMobile(1);">Back</button>
+        <button class="corner-btn corner-btn-right" onclick="goMobile(3);">Next</button>
+      </div>
+
+      <!-- Submit -->
+      <div class="sv-panel" style="display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;padding:44px 60px;max-width:500px;">
+          <div style="font-size:28px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:12px;">Final step</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.78);line-height:1.65;margin-bottom:28px;">Enter your email below to submit your response and be entered into the draw. The winner will receive a <strong>$1,000</strong> gift card to invest on <a onclick="window.open('https://tapestrycapital.ca/','_blank');return false;" href="https://tapestrycapital.ca/" class="submit-link" style="color:#6c6689;text-decoration:underline;cursor:pointer;" target="_blank">Tapestry Community Capital</a> and the runner-up will receive a <strong>$500</strong> gift card to invest on <a onclick="window.open('https://goparity.ca/','_blank');return false;" href="https://goparity.ca/" class="submit-link" style="color:#6c6689;text-decoration:underline;cursor:pointer;" target="_blank">GoParity</a>.</div>
+
+          <!-- Honeypot — hidden from humans, bots fill this in -->
+          <div style="display:none;" aria-hidden="true">
+            <input id="submit-honeypot" type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <!-- Email input -->
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:99px;padding:10px 20px;margin-bottom:16px;">
+            <span style="font-size:14px;color:rgba(255,255,255,0.6);flex-shrink:0;">✉</span>
+            <input id="submit-email" type="email" placeholder="Email address" style="font-family:'Instrument Sans',Arial,sans-serif;font-size:14px;font-weight:500;color:#fff;background:transparent;border:none;outline:none;width:100%;caret-color:rgba(255,255,255,0.8);">
+          </div>
+
+          <!-- Checkboxes -->
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:12px;text-align:left;">
+            <input id="submit-contact" type="checkbox" style="margin-top:3px;accent-color:#EF9F27;width:15px;height:15px;flex-shrink:0;">
+            <span style="font-size:13px;color:rgba(255,255,255,0.78);line-height:1.5;">I would like to be contacted about more opportunities to advocate for sustainable investing.</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:28px;text-align:left;">
+            <input id="submit-policy" type="checkbox" style="margin-top:3px;accent-color:#EF9F27;width:15px;height:15px;flex-shrink:0;">
+            <span style="font-size:13px;color:rgba(255,255,255,0.78);line-height:1.5;">I have read and agree to the <a onclick="window.open('https://greenbackrevolution.ca/survey/contest-rules','_blank');return false;" href="https://greenbackrevolution.ca/survey/contest-rules" class="submit-link" style="color:#6c6689;text-decoration:underline;cursor:pointer;" target="_blank">Contest Rules</a> and <a onclick="window.open('https://greenbackrevolution.ca/survey/privacy-policy','_blank');return false;" href="https://greenbackrevolution.ca/survey/privacy-policy" class="submit-link" style="color:#6c6689;text-decoration:underline;cursor:pointer;" target="_blank">Privacy Policy</a>. <em>(Mandatory)</em></span>
+          </label>
+
+          <!-- Desktop-only Submit button (hidden on mobile by CSS) -->
+          <button id="submit-btn" class="submit-btn-desktop" style="
+            font-family:'Instrument Sans',Arial,sans-serif;
+            font-size:15px;font-weight:600;
+            color:#5a5a5a;
+            background:#e8e4dc;
+            border:none;border-radius:99px;
+            padding:14px 32px;
+            cursor:pointer;
+            letter-spacing:0.01em;
+            transition:background 0.2s, color 0.2s;
+            display:inline-block;
+            position:relative;
+          ">Submit<span id="submit-tooltip" style="display:none;position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);background:#6c6689;color:#fff;font-size:12px;font-weight:400;line-height:1.5;border-radius:10px;padding:12px 16px;width:220px;white-space:normal;z-index:30;pointer-events:none;">Please provide a response to all questions, a valid email address, and agree to the Contest Rules and Privacy Policy before submitting.</span></button>
+          <div id="submit-error" style="display:none;font-size:12px;color:rgba(255,255,255,0.85);margin-top:16px;line-height:1.5;max-width:320px;margin-left:auto;margin-right:auto;">Please provide a response to all questions, provide a valid email address, and consent to the Contest Rules and Privacy Policy before submitting.</div>
+        </div>
+
+        <!-- Mobile corner buttons for final step -->
+        <button class="corner-btn corner-btn-left" id="submit-back-btn">Back</button>
+        <button class="corner-btn corner-btn-right" id="submit-btn-mob">Submit<span id="submit-tooltip-mob" style="display:none;position:absolute;bottom:calc(100% + 10px);right:0;background:#6c6689;color:#fff;font-size:12px;font-weight:400;line-height:1.5;border-radius:10px;padding:12px 16px;width:220px;text-align:left;white-space:normal;z-index:30;pointer-events:none;">Please provide a response to all questions, a valid email address, and agree to the Contest Rules and Privacy Policy before submitting.</span></button>
+      </div>
+
+      <!-- Thank You — locked, no exit -->
+      <div class="sv-panel" style="display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;padding:44px 60px;max-width:500px;">
+          <div style="font-size:28px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:12px;">Thank you for your response!</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.78);line-height:1.65;">We appreciate you reflecting on impact investing. You may now close this browser. Good luck in the draw!</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="survey-scroller">
+    <div id="survey-track"><div id="survey-thumb-el"></div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ══ SUBMISSION LOCK — set to true before going live to prevent duplicate submissions ══
+  var SUBMISSION_LOCK = false;
+  // ═════════════════════════════════════════════════════════════════════════════════════
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJN3ARPq6KtZeHWz9pI3IYlbAHptj83jBKa7BI-T1m9tpdxV769UdtlJc3sVlBIRwS/exec';
+  var stepperActive = false; // set true while ± buttons are pressed, blocks corner btn highlight
+  var panels=document.getElementById('survey-panels');
+  var thumbEl=document.getElementById('survey-thumb-el');
+  var track=document.getElementById('survey-track');
+  var viewport=document.getElementById('survey-viewport');
+
+  // ── Three-zone navigation ──
+  // zone 0 = title (panel 0), zone 1 = survey (panels 1-4), zone 2 = thank you (panel 5)
+  var zone = 0;
+  var surveyPanel = 0; // 0-3 within the survey zone (maps to panels 1-4)
+
+  function showZone(z){
+    zone = z;
+    var isMob = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+    var allPanels = panels.querySelectorAll('.sv-panel');
+    if(z === 0){
+      if(isMob){
+        allPanels.forEach(function(p,i){ p.style.display = i===0 ? 'flex' : 'none'; });
+        panels.style.transform = 'none';
+      } else {
+        panels.style.transform = 'translateY(0px)';
+      }
+      document.getElementById('survey-scroller').style.display = 'none';
+    } else if(z === 1){
+      document.getElementById('survey-scroller').style.display = isMob ? 'none' : 'flex';
+      updateSurveyPanel(surveyPanel);
+    } else {
+      if(isMob){
+        allPanels.forEach(function(p,i){ p.style.display = i===5 ? 'flex' : 'none'; });
+        panels.style.transform = 'none';
+      } else {
+        panels.style.transform = 'translateY(-'+(5*520)+'px)';
+      }
+      document.getElementById('survey-scroller').style.display = 'none';
+    }
+  }
+
+  var isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+
+  var navLock = false;
+
+  function updateSurveyPanel(sp){
+    if(typeof resetCornerBtns === 'function') resetCornerBtns();
+    surveyPanel = Math.max(0, Math.min(3, sp));
+    cur = surveyPanel + 1;
+    if(isMobile){
+      // On mobile: hide all survey panels, show only current
+      var allPanels = panels.querySelectorAll('.sv-panel');
+      allPanels.forEach(function(p, i){
+        p.style.display = (i === cur) ? 'flex' : 'none';
+      });
+      panels.style.transform = 'none';
+    } else {
+      panels.style.transform = 'translateY(-'+(cur*520)+'px)';
+    }
+    var tH = track.clientHeight;
+    var thH = Math.max(Math.round(tH/4), 28);
+    thumbEl.style.height = thH + 'px';
+    thumbEl.style.top = Math.round((surveyPanel/3)*(tH-thH)) + 'px';
+    if(cur===2) setTimeout(initQ2, 60);
+  }
+
+  function goTo(n){
+    // Legacy calls: translate to zone/surveyPanel system
+    if(n === 0) { showZone(0); return; }
+    if(n === 5) { showZone(2); return; }
+    showZone(1);
+    updateSurveyPanel(n - 1);
+  }
+
+  track.addEventListener('click',function(e){
+    if(dragging)return;
+    var r=track.getBoundingClientRect();
+    updateSurveyPanel(Math.round((e.clientY-r.top)/r.height*3));
+  });
+  thumbEl.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();});
+  document.addEventListener('mousemove',function(e){
+    if(!dragging)return;
+    var r=track.getBoundingClientRect();
+    updateSurveyPanel(Math.round((e.clientY-r.top)/r.height*3));
+  });
+  document.addEventListener('mouseup',function(){dragging=false;});
+  thumbEl.addEventListener('touchstart',function(e){dragging=true;e.preventDefault();},{passive:false});
+  document.addEventListener('touchmove',function(e){
+    if(!dragging)return;
+    var r=track.getBoundingClientRect();
+    updateSurveyPanel(Math.round((e.touches[0].clientY-r.top)/r.height*3));
+  },{passive:true});
+  document.addEventListener('touchend',function(){dragging=false;});
+  var scrollCooldown = false;
+  viewport.addEventListener('wheel',function(e){
+    e.preventDefault();
+    if(zone !== 1) return;
+    if(scrollCooldown) return;
+    scrollCooldown = true;
+    if(e.deltaY>0) updateSurveyPanel(surveyPanel+1); else updateSurveyPanel(surveyPanel-1);
+    setTimeout(function(){ scrollCooldown = false; }, 700);
+  },{passive:false});
+
+  // Mobile navigation
+  window.goMobile = function(sp){
+    resetCornerBtns();
+    var wrap = document.getElementById('survey-wrap');
+    wrap.style.pointerEvents = 'none';
+    setTimeout(function(){
+      wrap.style.pointerEvents = '';
+      resetCornerBtns(); // clear any highlight that snuck through
+    }, 400);
+    updateSurveyPanel(sp);
+  };
+  document.addEventListener('keydown',function(e){
+    if(zone !== 1) return;
+    if(e.key==='ArrowDown'||e.key==='PageDown') updateSurveyPanel(surveyPanel+1);
+    if(e.key==='ArrowUp'  ||e.key==='PageUp'  ) updateSurveyPanel(surveyPanel-1);
+  });
+
+  var Q1C={
+    1:'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291354/1_coin_base_zl9z1y.png',
+    2:'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291495/3_coins_base_o9261g.png',
+    3:'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291516/5_coins_base_qetnuj.png',
+    4:'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291558/8_coins_base_hgyavj.png',
+    5:'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291577/11_coins_base_dbvu8a.png',
+    6:'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291599/13_coins_base_bjdoyv.png'
+  };
+  var B='https://res.cloudinary.com/dkcw63bii/image/upload/';
+  var Q2C={
+    1:[{t:0,s:B+'v1778291354/1_coin_base_zl9z1y.png'},{t:50,s:B+'v1778291354/1_coin_impact_50_mo0jyb.png'}],
+    2:[{t:0,s:B+'v1778291495/3_coins_base_o9261g.png'},{t:9,s:B+'v1778291495/3_coins_impact_9_u6nbmh.png'},{t:50,s:B+'v1778291496/3_coins_impact_50_rsdggd.png'}],
+    3:[{t:0,s:B+'v1778291516/5_coins_base_qetnuj.png'},{t:9,s:B+'v1778291517/5_coins_9_impact_nplsfk.png'},{t:30,s:B+'v1778291513/5_coins_30_impact_lapdvc.png'},{t:50,s:B+'v1778291514/5_coins_50_impact_mkdsmg.png'}],
+    4:[{t:0,s:B+'v1778291558/8_coins_base_hgyavj.png'},{t:9,s:B+'v1778291557/8_coins_9_impact_xxjt9t.png'},{t:20,s:B+'v1778291553/8_coins_20_impact_d5apwy.png'},{t:30,s:B+'v1778291555/8_coins_impact_30_dbkkoo.png'},{t:50,s:B+'v1778291554/8_coins_50_impact_htm8ns.png'}],
+    5:[{t:0,s:B+'v1778291577/11_coins_base_dbvu8a.png'},{t:9,s:B+'v1778291572/11_coins_impact_9_kkxexn.png'},{t:20,s:B+'v1778291573/11_coins_impact_20_nnvi9s.png'},{t:30,s:B+'v1778291574/11_coins_impact_30_iuki23.png'},{t:40,s:B+'v1778291575/11_coins_impact_40_ddnojv.png'},{t:50,s:B+'v1778291571/11_coins_impact_50_xzigap.png'}],
+    6:[{t:0,s:B+'v1778291599/13_coins_base_bjdoyv.png'},{t:9,s:B+'v1778291601/13_coins_impact_9_dtgkjn.png'},{t:20,s:B+'v1778291593/13_coins_impact_20_seyxsb.png'},{t:30,s:B+'v1778291595/13_coins_impact_30_pzplle.png'},{t:40,s:B+'v1778291596/13_coins_impact_40_vypdrl.png'},{t:50,s:B+'v1778291597/13_coins_impact_50_xeppmx.png'}]
+  };
+  Object.values(Q1C).forEach(function(u){new Image().src=u;});
+  Object.values(Q2C).forEach(function(a){a.forEach(function(e){new Image().src=e.s;});});
+
+  var q1Digits=1;
+  var q1Img=document.getElementById('q1-coin');
+  var q2Img=document.getElementById('q2-coin');
+
+  function q2Src(d,v){
+    var set=Q2C[Math.max(1,Math.min(6,d||1))];
+    var s=set[0].s; for(var i=0;i<set.length;i++) if(v>=set[i].t) s=set[i].s; return s;
+  }
+
+  var q1In=document.getElementById('q1-input');
+  q1In.addEventListener('keydown',function(e){
+    var ok=[8,9,13,27,35,36,37,38,39,40,46];
+    if(ok.indexOf(e.keyCode)!==-1)return;
+    if(e.key<'0'||e.key>'9')e.preventDefault();
+  });
+  q1In.addEventListener('input',function(){
+    var raw=this.value.replace(/\D/g,'').slice(0,10);
+    this.value=raw.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    q1Digits=raw.length;
+    var coinKey=q1Digits===0?1:Math.min(q1Digits,6);
+    q1Img.src=Q1C[coinKey];q1Img.style.display='block';
+    refreshQ2Coin();
+  });
+  q1In.addEventListener('paste',function(e){
+    e.preventDefault();
+    var d=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');
+    var c=(this.value.replace(/\D/g,'')+d).slice(0,10);
+    this.value=c.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    q1Digits=c.length; refreshQ2Coin();
+  });
+
+  var q2Range=document.getElementById('q2-range');
+  var q2Thumb=document.getElementById('q2-thumb');
+  var q2ValEl=document.getElementById('q2-val');
+  var q2Pill=document.getElementById('q2-pill');
+  var q2Mkrs=document.getElementById('q2-markers');
+  var q2L50=document.getElementById('q2-label-50');
+  var TW=36, PD=3;
+
+  function tc(v,w){return PD+(v/50)*(w-PD*2-TW)+TW/2;}
+
+  function initQ2(){
+    var wW=q2Pill.clientWidth;
+    q2Mkrs.style.width=wW+'px';
+    // Start thumb at midpoint
+    if(!q2Interacted) q2Thumb.style.left=(PD+(0.5)*(wW-PD*2-TW))+'px';
+    var c9=tc(9,wW), c50=tc(50,wW);
+    document.getElementById('q2-mk0').style.right=(wW-c9)+'px';
+    document.getElementById('q2-mk0').style.left='auto';
+    document.getElementById('q2-mk1').style.right=(wW-(c50+8))+'px';
+    document.getElementById('q2-mk1').style.left='auto';
+    q2L50.style.left=c50+'px'; q2L50.style.right='auto';
+    updateQ2();
+  }
+
+  function refreshQ2Coin(){
+    var s=q2Src(q1Digits,parseInt(q2Range.value));
+    if(q2Img.getAttribute('src')!==s) q2Img.src=s;
+    q2Img.style.display='block';
+  }
+
+  var q2Interacted = false;
+  function onQ2Interact(){
+    if(q2Interacted) return;
+    q2Interacted = true;
+  }
+
+  function updateQ2(){
+    var v=parseInt(q2Range.value), wW=q2Pill.clientWidth;
+    q2Thumb.style.left=(PD+(v/50)*(wW-PD*2-TW))+'px';
+    if(q2Interacted) q2ValEl.textContent=v+'%';
+    refreshQ2Coin();
+    ['tick0','lbl0'].forEach(function(id){document.getElementById('q2-'+id).classList.toggle('active',v>=9);});
+    ['tick1','lbl1'].forEach(function(id){document.getElementById('q2-'+id).classList.toggle('active',v>=50);});
+    // update info box pills on mobile — only one shown at a time, swap at 50%
+    var info0=document.getElementById('q2-info-0');
+    var info1=document.getElementById('q2-info-1');
+    if(info0 && info1){
+      if(v >= 50){
+        info0.style.display = 'none';
+        info1.style.display = 'flex'; info1.classList.add('active');
+      } else if(v >= 9){
+        info1.style.display = 'none';
+        info0.style.display = 'flex'; info0.classList.add('active');
+      } else {
+        info0.style.display = 'none';
+        info1.style.display = 'none';
+      }
+    }
+    // update stepper button states
+    var minusBtn=document.getElementById('q2-minus');
+    var plusBtn=document.getElementById('q2-plus');
+    if(minusBtn) minusBtn.classList.toggle('disabled', v<=0);
+    if(plusBtn)  plusBtn.classList.toggle('disabled',  v>=50);
+    // update progress pill
+    var prog=document.getElementById('q2-progress');
+    var fill=document.getElementById('q2-progress-fill');
+    if(prog && q2Interacted) prog.classList.add('visible');
+    if(fill) fill.style.width=(v/50*100)+'%';
+  }
+
+  q2Range.addEventListener('input', function(){ onQ2Interact(); updateQ2(); });
+  q2Range.addEventListener('change', function(){ onQ2Interact(); updateQ2(); });
+  q2Range.addEventListener('mousedown', function(){ onQ2Interact(); updateQ2(); });
+  q2Range.addEventListener('touchstart', function(){ onQ2Interact(); updateQ2(); }, {passive:true});
+  q2Range.addEventListener('click', function(){ onQ2Interact(); updateQ2(); });
+  window.addEventListener('resize',function(){if(zone===1&&cur===2)initQ2();});
+
+  // ── Q2 stepper buttons (mobile) ──
+  var q2StepHold = null;
+  var q2StepRepeat = null;
+
+  function q2Step(dir){
+    var cur = parseInt(q2Range.value);
+    // First interaction: start at 0 for minus, 1 for plus
+    if(!q2Interacted){
+      q2ValEl.textContent = '';
+      q2ValEl.dataset.unset = '0';
+      onQ2Interact();
+      q2Range.value = (dir === -1) ? 0 : 1;
+    } else {
+      var next = Math.max(0, Math.min(50, cur + dir));
+      q2Range.value = next;
+    }
+    updateQ2();
+  }
+
+  function q2StepStart(dir){
+    q2Step(dir);
+    q2StepHold = setTimeout(function(){
+      q2StepRepeat = setInterval(function(){ q2Step(dir); }, 100);
+      // Accelerate after 1s of holding
+      setTimeout(function(){
+        if(q2StepRepeat){ clearInterval(q2StepRepeat); q2StepRepeat = setInterval(function(){ q2Step(dir); }, 50); }
+      }, 1000);
+    }, 400);
+  }
+
+  function q2StepStop(){
+    if(q2StepHold)   { clearTimeout(q2StepHold);   q2StepHold = null; }
+    if(q2StepRepeat) { clearInterval(q2StepRepeat); q2StepRepeat = null; }
+  }
+
+  var minusBtn = document.getElementById('q2-minus');
+  var plusBtn  = document.getElementById('q2-plus');
+
+  if(minusBtn){
+    minusBtn.addEventListener('mousedown',  function(){ q2StepStart(-1); });
+    minusBtn.addEventListener('touchstart', function(e){ e.preventDefault(); e.stopPropagation(); stepperActive=true; lockCornerBtns(); q2StepStart(-1); }, {passive:false});
+    minusBtn.addEventListener('mouseup',   q2StepStop);
+    minusBtn.addEventListener('mouseleave',q2StepStop);
+    minusBtn.addEventListener('touchend',  function(){ stepperActive=false; unlockCornerBtns(); q2StepStop(); });
+    minusBtn.addEventListener('touchcancel', q2StepStop);
+  }
+  if(plusBtn){
+    plusBtn.addEventListener('mousedown',  function(){ q2StepStart(1); });
+    plusBtn.addEventListener('touchstart', function(e){ e.preventDefault(); e.stopPropagation(); stepperActive=true; lockCornerBtns(); q2StepStart(1); }, {passive:false});
+    plusBtn.addEventListener('mouseup',   q2StepStop);
+    plusBtn.addEventListener('mouseleave',q2StepStop);
+    plusBtn.addEventListener('touchend',  function(){ stepperActive=false; unlockCornerBtns(); q2StepStop(); });
+    plusBtn.addEventListener('touchcancel', q2StepStop);
+  }
+
+  // On mobile, move submit error below the back button
+  (function(){
+    var isMob = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+    if(isMob){
+      var err = document.getElementById('submit-error');
+      var backDiv = document.querySelector('.mobile-nav[style*="padding:16px 0 0 0"]');
+      if(err && backDiv && backDiv.parentNode) backDiv.parentNode.insertBefore(err, backDiv.nextSibling);
+    }
+  })();
+  (function(){
+    var isMob = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+    if(isMob){
+      q2ValEl.textContent = 'Press or hold button';
+      q2ValEl.dataset.unset = '1';
+    }
+  })();
+
+  showZone(0);
+  initQ2();
+  setTimeout(function(){
+    var tH=track.clientHeight, thH=Math.max(Math.round(tH/4),28);
+    thumbEl.style.height=thH+'px'; thumbEl.style.top='0px';
+  },50);
+
+  // ── Q3 Sliders ──
+  var TW3=28, PD3=3;
+  function tc3(v,min,max,w){ return PD3+((v-min)/(max-min))*(w-PD3*2-TW3)+TW3/2; }
+
+  // Term slider (3–7 years)
+  var termRange   = document.getElementById('q3-term-range');
+  var termThumb   = document.getElementById('q3-term-thumb');
+  var termDisplay = document.getElementById('q3-term-display');
+  var termPill    = document.getElementById('q3-term-pill');
+
+
+  function updateTerm(){
+    var v=parseInt(termRange.value), wW=termPill.clientWidth;
+    var trackW=wW-PD3*2-TW3;
+    termThumb.style.left=(PD3+((v-3)/4)*trackW)+'px';
+    if(q3TermInteracted) termDisplay.textContent=v+' year'+(v>1?'s':'');
+    var fill=document.getElementById('q3-term-progress-fill');
+    var prog=document.getElementById('q3-term-progress');
+    if(prog && q3TermInteracted) prog.classList.add('visible');
+    if(fill) fill.style.width=((v-3)/4*100)+'%';
+  }
+
+  var q3TermInteracted = false;
+  function onTermInteract(){
+    if(q3TermInteracted) return;
+    q3TermInteracted = true;
+  }
+
+  termRange.addEventListener('input', function(){ onTermInteract(); updateTerm(); });
+  termRange.addEventListener('change', function(){ onTermInteract(); updateTerm(); });
+  termRange.addEventListener('mousedown', function(){ onTermInteract(); updateTerm(); });
+  termRange.addEventListener('touchstart', function(){ onTermInteract(); updateTerm(); }, {passive:true});
+  termRange.addEventListener('click', function(){ onTermInteract(); updateTerm(); });
+
+  // Risk slider (0.0–1.0% in 0.2 steps, stored as 0–5)
+  var riskRange   = document.getElementById('q3-risk-range');
+  var riskThumb   = document.getElementById('q3-risk-thumb');
+  var riskDisplay = document.getElementById('q3-risk-display');
+  var riskPill    = document.getElementById('q3-risk-pill');
+
+  function updateRisk(){
+    var v=parseInt(riskRange.value), wW=riskPill.clientWidth;
+    var trackW=wW-PD3*2-TW3;
+    riskThumb.style.left=(PD3+(v/5)*trackW)+'px';
+    if(q3RiskInteracted) riskDisplay.textContent=(v*0.2).toFixed(1)+'% risk of losing investment';
+    var fill=document.getElementById('q3-risk-progress-fill');
+    var prog=document.getElementById('q3-risk-progress');
+    if(prog && q3RiskInteracted) prog.classList.add('visible');
+    if(fill) fill.style.width=(v/5*100)+'%';
+  }
+
+  var q3RiskInteracted = false;
+  function onRiskInteract(){
+    if(q3RiskInteracted) return;
+    q3RiskInteracted = true;
+  }
+
+  riskRange.addEventListener('input', function(){ onRiskInteract(); updateRisk(); });
+  riskRange.addEventListener('change', function(){ onRiskInteract(); updateRisk(); });
+  riskRange.addEventListener('mousedown', function(){ onRiskInteract(); updateRisk(); });
+  riskRange.addEventListener('touchstart', function(){ onRiskInteract(); updateRisk(); }, {passive:true});
+  riskRange.addEventListener('click', function(){ onRiskInteract(); updateRisk(); });
+
+  // Init both after slight delay to get pill widths
+  setTimeout(function(){
+    // Start Q3 thumbs at midpoint if not yet interacted
+    var tW = termPill ? termPill.clientWidth : 0;
+    var rW = riskPill ? riskPill.clientWidth : 0;
+    if(!q3TermInteracted && tW) document.getElementById('q3-term-thumb').style.left=(PD3+(0.5)*(tW-PD3*2-TW3))+'px';
+    if(!q3RiskInteracted && rW) document.getElementById('q3-risk-thumb').style.left=(PD3+(0.5)*(rW-PD3*2-TW3))+'px';
+    updateTerm();
+    updateRisk();
+  },100);
+
+  window.addEventListener('resize', function(){
+    updateTerm();
+    updateRisk();
+  });
+
+  // ── Q3 stepper buttons (mobile) ──
+  var q3StepHold = null;
+  var q3StepRepeat = null;
+
+  function q3Step(range, min, max, dir, onInteract, updateFn){
+    var next = Math.max(min, Math.min(max, parseInt(range.value) + dir));
+    range.value = next;
+    onInteract();
+    updateFn();
+    onQ3Interact(); // always update beaver text
+    var id = range.id === 'q3-term-range' ? 'q3-term' : 'q3-risk';
+    var mBtn = document.getElementById(id+'-minus');
+    var pBtn = document.getElementById(id+'-plus');
+    if(mBtn) mBtn.classList.toggle('disabled', next <= min);
+    if(pBtn) pBtn.classList.toggle('disabled', next >= max);
+  }
+
+  function q3StepStart(range, min, max, dir, onInteract, updateFn){
+    q3Step(range, min, max, dir, onInteract, updateFn);
+    q3StepHold = setTimeout(function(){
+      q3StepRepeat = setInterval(function(){ q3Step(range, min, max, dir, onInteract, updateFn); }, 50);
+    }, 400);
+  }
+
+  function q3StepStop(){
+    if(q3StepHold)   { clearTimeout(q3StepHold);   q3StepHold = null; }
+    if(q3StepRepeat) { clearInterval(q3StepRepeat); q3StepRepeat = null; }
+  }
+
+  function wireQ3Stepper(minusId, plusId, range, min, max, onInteract, updateFn){
+    var mBtn = document.getElementById(minusId);
+    var pBtn = document.getElementById(plusId);
+    var holdTimer = null;
+    var repeatTimer = null;
+
+    function doStep(dir){
+      var next = Math.max(min, Math.min(max, parseInt(range.value) + dir));
+      range.value = next;
+      onInteract();
+      updateFn();
+      onQ3Interact();
+      if(mBtn) mBtn.classList.toggle('disabled', next <= min);
+      if(pBtn) pBtn.classList.toggle('disabled', next >= max);
+    }
+
+    function startHold(dir){
+      doStep(dir);
+      holdTimer = setTimeout(function(){
+        repeatTimer = setInterval(function(){ doStep(dir); }, 400);
+      }, 400);
+    }
+
+    function stopHold(){
+      if(holdTimer)  { clearTimeout(holdTimer);   holdTimer = null; }
+      if(repeatTimer){ clearInterval(repeatTimer); repeatTimer = null; }
+    }
+
+    if(mBtn){
+      mBtn.classList.toggle('disabled', parseInt(range.value) <= min);
+      mBtn.addEventListener('mousedown',   function(){ startHold(-1); });
+      mBtn.addEventListener('touchstart',  function(e){ e.preventDefault(); e.stopPropagation(); stepperActive=true; lockCornerBtns(); startHold(-1); }, {passive:false});
+      mBtn.addEventListener('mouseup',     stopHold);
+      mBtn.addEventListener('mouseleave',  stopHold);
+      mBtn.addEventListener('touchend',    function(){ stepperActive=false; unlockCornerBtns(); stopHold(); });
+      mBtn.addEventListener('touchcancel', stopHold);
+    }
+    if(pBtn){
+      pBtn.classList.toggle('disabled', parseInt(range.value) >= max);
+      pBtn.addEventListener('mousedown',   function(){ startHold(1); });
+      pBtn.addEventListener('touchstart',  function(e){ e.preventDefault(); e.stopPropagation(); stepperActive=true; lockCornerBtns(); startHold(1); }, {passive:false});
+      pBtn.addEventListener('mouseup',     stopHold);
+      pBtn.addEventListener('mouseleave',  stopHold);
+      pBtn.addEventListener('touchend',    function(){ stepperActive=false; unlockCornerBtns(); stopHold(); });
+      pBtn.addEventListener('touchcancel', stopHold);
+    }
+  }
+
+  wireQ3Stepper('q3-term-minus','q3-term-plus', termRange, 3, 7, onTermInteract, updateTerm);
+  wireQ3Stepper('q3-risk-minus','q3-risk-plus', riskRange, 0, 5, onRiskInteract, updateRisk);
+
+  // Mobile nav buttons — touch feedback
+  document.querySelectorAll('.mobile-nav-btn').forEach(function(btn){
+    btn.addEventListener('touchstart', function(){ this.style.background='#EF9F27'; this.style.color='#fff'; }, {passive:true});
+    btn.addEventListener('touchend', function(){ var self=this; setTimeout(function(){ self.style.background='#e8e4dc'; self.style.color='#5a5a5a'; }, 200); }, {passive:true});
+    btn.addEventListener('mouseenter', function(){ this.style.background='#EF9F27'; this.style.color='#fff'; });
+    btn.addEventListener('mouseleave', function(){ this.style.background='#e8e4dc'; self.style.color='#5a5a5a'; });
+  });
+
+  // Corner buttons — JS touch highlight
+  function resetCornerBtns(){
+    document.querySelectorAll('.corner-btn').forEach(function(b){ b.style.background=''; b.style.color=''; b.style.pointerEvents=''; });
+  }
+  function lockCornerBtns(){
+    document.querySelectorAll('.corner-btn').forEach(function(b){ b.style.pointerEvents='none'; });
+  }
+  function unlockCornerBtns(){
+    document.querySelectorAll('.corner-btn').forEach(function(b){ b.style.pointerEvents=''; });
+  }
+  document.querySelectorAll('.corner-btn').forEach(function(btn){
+    btn.addEventListener('touchstart', function(e){
+      if(stepperActive) return;
+      this.style.background='#EF9F27'; this.style.color='#fff';
+    }, {passive:true});
+    btn.addEventListener('touchend', function(){
+      var s=this; setTimeout(function(){ s.style.background=''; s.style.color=''; }, 150);
+    }, {passive:true});
+  });
+
+  // Submit Back button — click only (highlight from above handler)
+  var submitBackBtn = document.getElementById('submit-back-btn');
+  if(submitBackBtn){ submitBackBtn.addEventListener('click', function(){ goMobile(2); }); }
+
+  // Begin button
+  var beginBtn = document.getElementById('begin-btn');
+  if(beginBtn){
+    beginBtn.addEventListener('mouseenter', function(){ this.style.background='#EF9F27'; this.style.color='#fff'; });
+    beginBtn.addEventListener('mouseleave', function(){ this.style.background='#e8e4dc'; this.style.color='#5a5a5a'; });
+    beginBtn.addEventListener('click', function(){ goTo(1); });
+  }
+
+  // Submit button — desktop uses #submit-btn, mobile uses #submit-btn-mob
+  var submitBtn = document.getElementById('submit-btn');
+  var submitBtnMob = document.getElementById('submit-btn-mob');
+  var submitTooltip = document.getElementById('submit-tooltip');
+  var submitTooltipMob = document.getElementById('submit-tooltip-mob');
+  var isMobSubmit = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+  // Use mobile versions if on mobile
+  var activeSubmitBtn = isMobSubmit ? submitBtnMob : submitBtn;
+  var activeTooltip = isMobSubmit ? submitTooltipMob : submitTooltip;
+
+  function closeSubmitTooltip(){
+    if(activeTooltip) activeTooltip.style.display = 'none';
+    if(activeSubmitBtn){ activeSubmitBtn.style.background = '#e8e4dc'; activeSubmitBtn.style.color = '#5a5a5a'; }
+  }
+
+  function handleSubmitClick(e){
+    e.stopPropagation();
+    if(document.getElementById('submit-honeypot').value) return;
+
+    var lastSubmit = localStorage.getItem('survey_submitted');
+    if(SUBMISSION_LOCK && lastSubmit && (Date.now() - parseInt(lastSubmit)) < 24*60*60*1000){
+      if(activeSubmitBtn){ activeSubmitBtn.textContent = 'Already submitted!'; activeSubmitBtn.style.background = '#9BAAA8'; activeSubmitBtn.style.color = '#fff'; }
+      return;
+    }
+
+    var email = document.getElementById('submit-email').value.trim();
+    var policy = document.getElementById('submit-policy').checked;
+    var q1Done = document.getElementById('q1-input').value.replace(/\D/g,'').length > 0;
+    var q2Done = q2Interacted;
+    var q3TermDone = q3TermInteracted;
+    var q3RiskDone = q3RiskInteracted;
+    var validEmail = email.length > 0 && email.includes('@') && email.includes('.');
+    var errEl = document.getElementById('submit-error');
+
+    if(!q1Done || !q2Done || !q3TermDone || !q3RiskDone || !validEmail || !policy){
+      if(isMobSubmit){
+        if(activeTooltip) activeTooltip.style.display = 'block';
+        if(activeSubmitBtn){ activeSubmitBtn.style.background = '#EF9F27'; activeSubmitBtn.style.color = '#fff'; }
+      } else {
+        errEl.style.display = 'block';
+      }
+      return;
+    }
+    if(activeTooltip) activeTooltip.style.display = 'none';
+    errEl.style.display = 'none';
+
+    var payload = {
+      timestamp: new Date().toISOString(),
+      location: '', // filled in by geolocation below
+      email: email,
+      contactConsent: document.getElementById('submit-contact').checked ? 'Yes' : 'No',
+      q1Assets: document.getElementById('q1-input').value.replace(/,/g,''),
+      q2Share: parseInt(q2Range.value) / 100,
+      q3Term: window.q3TermValue ? window.q3TermValue() : '',
+      q3Risk: window.q3RiskValue ? (window.q3RiskValue() / 100) : '',
+      q3Return: (function(){
+        if(!window.q3TermValue || !window.q3RiskValue) return '';
+        return (calcReturn(window.q3RiskValue(), window.q3TermValue()) / 100).toFixed(4);
+      })()
+    };
+
+    localStorage.setItem('survey_submitted', Date.now().toString());
+    goTo(5);
+
+    // Fetch location then POST (non-blocking — page already moved to thank you)
+    fetch('https://ipapi.co/json/')
+      .then(function(r){ return r.json(); })
+      .then(function(geo){
+        payload.location = (geo.region || '') + (geo.region && geo.country_name ? ', ' : '') + (geo.country_name || '');
+      })
+      .catch(function(){ payload.location = 'Unknown'; })
+      .finally(function(){
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(payload),
+          headers: {'Content-Type': 'application/json'}
+        }).catch(function(err){ console.error('Submission error:', err); });
+      });
+  }
+
+  if(submitBtn){
+    submitBtn.addEventListener('mouseenter', function(){ this.style.background='#EF9F27'; this.style.color='#fff'; });
+    submitBtn.addEventListener('mouseleave', function(){ this.style.background='#e8e4dc'; this.style.color='#5a5a5a'; });
+    submitBtn.addEventListener('click', handleSubmitClick);
+  }
+  if(submitBtnMob){ submitBtnMob.addEventListener('click', handleSubmitClick); }
+
+  // Tap anywhere to close submit tooltip
+  document.addEventListener('touchstart', function(){ closeSubmitTooltip(); }, {passive:true});
+
+  // Tap anywhere to close submit tooltip and revert button colour
+  document.addEventListener('touchstart', function(){ closeSubmitTooltip(); }, {passive:true});
+
+  window.q3TermValue = function(){ return parseInt(termRange.value); };
+  window.q3RiskValue = function(){ return parseFloat(riskRange.value)*0.2; };
+
+  // Preload dam + sack images
+  setTimeout(function(){
+    [DAM_SAFE, DAM_RISK].forEach(function(u){ new Image().src=u; });
+    [3,4,5,6,7].forEach(function(y){
+      new Image().src=SACKS[y].lo;
+      new Image().src=SACKS[y].hi;
+    });
+  }, 200);
+
+  // ── Return lookup table [risk 0.0–1.0 step 0.2][term 3–7] ──
+  var RETURN_TABLE = {
+    0.0: { 3: 3.4, 4: 3.7, 5: 4.0, 6: 4.3, 7: 4.6 },
+    0.2: { 3: 3.4, 4: 3.7, 5: 4.1, 6: 4.4, 7: 4.7 },
+    0.4: { 3: 3.4, 4: 3.7, 5: 4.1, 6: 4.4, 7: 4.8 },
+    0.6: { 3: 3.4, 4: 3.8, 5: 4.1, 6: 4.5, 7: 4.8 },
+    0.8: { 3: 3.5, 4: 3.8, 5: 4.1, 6: 4.5, 7: 4.8 },
+    1.0: { 3: 3.5, 4: 3.8, 5: 4.2, 6: 4.5, 7: 4.9 }
+  };
+
+  function calcReturn(riskPct, term) {
+    var riskKey = Math.round(Math.min(1.0, Math.max(0.0, riskPct)) / 0.2) * 0.2;
+    riskKey = Math.round(riskKey * 10) / 10;
+    var termKey = Math.min(7, Math.max(3, Math.round(term)));
+    var row = RETURN_TABLE[riskKey];
+    return row ? row[termKey] : 3.7;
+  }
+
+  var q3TextEl = document.querySelector('#q3-scene .bubble-text-inner');
+
+  var DAM_SAFE = 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778458030/Safe_beaver_dam_kmpwaj.png';
+  var DAM_RISK = 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778458026/Small_risk_beaver_dam_stfrio.png';
+  var SACKS = {
+    3: { lo: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291929/Money_sack_3_years_stoqid.png',
+         hi: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291942/Money_sack_3_years_fuller_wjl28g.png' },
+    4: { lo: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291931/Money_sack_4_years_hhk2dq.png',
+         hi: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291930/Money_sack_4_years_fuller_sapzez.png' },
+    5: { lo: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291934/Money_sack_5_years_t6r6p9.png',
+         hi: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291933/Money_sack_5_years_fuller_ywqbgl.png' },
+    6: { lo: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291937/Money_sack_6_years_pspbww.png',
+         hi: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291936/Money_sack_6_years_fuller_oi7f9o.png' },
+    7: { lo: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291940/Money_sack_7_years_l4sevp.png',
+         hi: 'https://res.cloudinary.com/dkcw63bii/image/upload/v1778291939/Money_sack_7_years_fuller_sg1gv2.png' }
+  };
+
+  function updateBeaverImages(){
+    var riskVal = parseInt(riskRange.value) * 0.2;
+    var years = parseInt(termRange.value);
+    var ret = calcReturn(riskVal, years);
+    var damEl = document.getElementById('q3-dam-img');
+    if(damEl){
+      var damSrc = riskVal >= 0.5 ? DAM_RISK : DAM_SAFE;
+      if(damEl.src !== damSrc) damEl.src = damSrc;
+    }
+    var sackEl = document.getElementById('q3-sack-img');
+    if(sackEl){
+      var sackSet = SACKS[years] || SACKS[3];
+      var sackSrc = ret > 4.5 ? sackSet.hi : sackSet.lo;
+      if(sackEl.src !== sackSrc) sackEl.src = sackSrc;
+    }
+  }
+
+  function updateBeaverText(){
+    var riskVal = parseInt(riskRange.value) * 0.2;
+    var years = parseInt(termRange.value);
+    var ret = calcReturn(riskVal, years);
+    var retStr = ret.toFixed(1);
+
+    // Update beaver text
+    if(q3TextEl){
+      q3TextEl.innerHTML = 'At that level, a bond could have an annual return of about: <span style="display:block;text-align:center;width:100%;color:#6e6a89;font-size:1.38em;font-weight:400;letter-spacing:0.04em;">' + retStr + '% <a href="https://docs.google.com/spreadsheets/d/1b52V8sLDMQtCJpR1rdGf4W33UaJUEkO-Y5lsMjSBZK0/edit?usp=sharing" onclick="window.open(\'https://docs.google.com/spreadsheets/d/1b52V8sLDMQtCJpR1rdGf4W33UaJUEkO-Y5lsMjSBZK0/edit?usp=sharing\',\'_blank\');return false;" target="_blank" style="font-family:\'Bangers\',cursive;font-size:0.65em;font-weight:400;letter-spacing:0.03em;color:#333;text-decoration:underline;text-decoration-color:#6e6a89;text-underline-offset:2px;vertical-align:middle;">(Methodology)</a></span>';
+    }
+
+    updateBeaverImages();
+  }
+
+  var q3Interacted = false;
+  var isMobQ3 = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+
+  function onQ3Interact(){
+    updateBeaverImages(); // always update images regardless
+    // Only switch beaver text once BOTH sliders/buttons have been used
+    if(q3TermInteracted && q3RiskInteracted){
+      if(!q3Interacted){
+        q3Interacted = true;
+        termRange.addEventListener('input', updateBeaverText);
+        riskRange.addEventListener('input', updateBeaverText);
+      }
+      updateBeaverText();
+    }
+  }
+
+  // Images always update on any individual slider move
+  termRange.addEventListener('input', updateBeaverImages);
+  riskRange.addEventListener('input', updateBeaverImages);
+
+  termRange.addEventListener('mousedown', onQ3Interact, {once:true});
+  termRange.addEventListener('touchstart', onQ3Interact, {once:true, passive:true});
+  riskRange.addEventListener('mousedown', onQ3Interact, {once:true});
+  riskRange.addEventListener('touchstart', onQ3Interact, {once:true, passive:true});
+  termRange.addEventListener('click', onQ3Interact, {once:true});
+  riskRange.addEventListener('click', onQ3Interact, {once:true});
+
+  // Mobile-only: set Q3 indicator labels to "Press button"
+  if(isMobQ3){
+    var tDisp2 = document.getElementById('q3-term-display');
+    var rDisp2 = document.getElementById('q3-risk-display');
+    if(tDisp2) tDisp2.textContent = 'Press or hold button';
+    if(rDisp2) rDisp2.textContent = 'Press or hold button';
+  }
+
+  // ── Term tooltip: tap to open on mobile, tap away to close ──
+  ['q1-term','q2-term','q3-term'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('touchstart', function(e){
+      e.stopPropagation();
+      var isOpen = el.classList.contains('tooltip-open');
+      // close all others first
+      ['q1-term','q2-term','q3-term'].forEach(function(oid){
+        var o = document.getElementById(oid);
+        if(o) o.classList.remove('tooltip-open');
+      });
+      el.classList.toggle('tooltip-open', !isOpen);
+    }, {passive:true});
+  });
+  document.addEventListener('touchstart', function(){
+    ['q1-term','q2-term','q3-term'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.classList.remove('tooltip-open');
+    });
+  }, {passive:true});
+
+})();
+</script>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="gbr-footer">
+    <div class="gbr-footer-inner">
+      <a href="https://greenbackrevolution.ca/" class="gbr-footer-logo">
+        <div class="gbr-logo-text">
+          <span>Greenback</span>
+          <span>Revolution</span>
+        </div>
+      </a>
+      <p class="gbr-footer-desc">Greenback Revolution is a non-profit initiative working to mobilize retail investors towards sustainable investments, because our future depends on it.</p>
+      <p class="gbr-footer-contact">Get in touch</p>
+      <p class="gbr-footer-email">info@greenbackrevolution.ca</p>
+      <p class="gbr-footer-copy">© Greenback Revolution 2026 &nbsp;·&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
