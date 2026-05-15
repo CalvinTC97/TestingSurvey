@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Instrument Sans', Arial, sans-serif;
       background: #e8e6e0;
@@ -15,102 +14,27 @@
       display: flex;
       flex-direction: column;
     }
-
-    /* ── Nav ── */
     nav {
-      width: 100%;
-      padding: 0 32px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(232,230,224,0.92);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      width: 100%; padding: 0 32px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(232,230,224,0.92); backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid rgba(0,0,0,0.07);
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nav-logo-mark {
-      width: 28px; height: 28px;
-      background: linear-gradient(135deg, #8B7EC8, #96C4A8);
-      border-radius: 8px;
-    }
-    .nav-wordmark {
-      font-size: 14px;
-      font-weight: 600;
-      color: #3a3a3a;
-      letter-spacing: 0.01em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-    }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 500;
-      color: #5a5a5a;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-mark { width: 28px; height: 28px; background: linear-gradient(135deg,#8B7EC8,#96C4A8); border-radius: 8px; }
+    .nav-wordmark { font-size: 14px; font-weight: 600; color: #3a3a3a; letter-spacing: 0.01em; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: #5a5a5a; text-decoration: none; letter-spacing: 0.01em; }
     .nav-links a:hover { color: #3a3a3a; }
-
-    /* ── Hero / intro text ── */
-    .hero {
-      text-align: center;
-      padding: 52px 24px 36px;
-    }
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #8B7EC8;
-      margin-bottom: 14px;
-    }
-    .hero-title {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 400;
-      color: #2a2a2a;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .hero-sub {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.7;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    /* ── Survey shell ── */
-    .survey-shell {
-      display: flex;
-      justify-content: center;
-      padding: 0 16px 64px;
-    }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: auto;
-      border-top: 1px solid rgba(0,0,0,0.07);
-      padding: 20px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: #999;
-      background: #e2e0da;
-    }
+    .hero { text-align: center; padding: 52px 24px 36px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #8B7EC8; margin-bottom: 14px; }
+    .hero-title { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(28px,5vw,42px); font-weight: 400; color: #2a2a2a; line-height: 1.2; margin-bottom: 16px; }
+    .hero-sub { font-size: 15px; color: #666; line-height: 1.7; max-width: 500px; margin: 0 auto; }
+    .survey-shell { display: flex; justify-content: center; padding: 0 16px 64px; }
+    footer { margin-top: auto; border-top: 1px solid rgba(0,0,0,0.07); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #999; background: #e2e0da; }
     footer a { color: #8B7EC8; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-
     @media (max-width: 600px) {
       nav { padding: 0 16px; }
       .nav-links { display: none; }
@@ -120,7 +44,6 @@
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-logo">
       <div class="nav-logo-mark"></div>
@@ -132,15 +55,12 @@
       <a href="#">Contact</a>
     </div>
   </nav>
-
   <div class="hero">
     <div class="hero-eyebrow">Survey</div>
     <h1 class="hero-title">Investing for Impact</h1>
     <p class="hero-sub">Where you put your money matters. Tell us about the kind of impact you'd like to have, and win up to&nbsp;<strong>$1,000</strong> to invest into sustainable projects.</p>
   </div>
-
   <div class="survey-shell">
-    <!-- ═══════════ SURVEY WIDGET ═══════════ -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <script>(function(){
   var isMobileDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
@@ -169,6 +89,21 @@
       }
     });
   }
+  // ── Ensure all panels share the same height as the survey wrap ──
+  function setPanelHeights() {
+    if (!IS_MOBILE) return;
+    var wrap = document.getElementById('survey-wrap');
+    var h = wrap ? wrap.offsetHeight : 0;
+    if (h < 100) return;
+    document.querySelectorAll('.sv-panel').forEach(function(p) {
+      p.style.minHeight = h + 'px';
+      p.style.height    = h + 'px';
+    });
+  }
+  setTimeout(setPanelHeights, 0);
+  window.addEventListener('load', setPanelHeights);
+  window.addEventListener('resize', setPanelHeights);
+
 })();</script>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Bangers&display=swap" rel="stylesheet">
 <style>
@@ -234,14 +169,14 @@
   #survey-wrap { max-width: 100%; border-radius: 28px; }
   .sv-panel { height: 100svh; min-height: 100svh; flex-direction: column; }
   .sv-left { position: relative !important; top: auto !important; transform: none !important; left: auto !important; width: 100% !important; padding: 20px 24px 8px 24px !important; justify-content: flex-start !important; flex-shrink: 0; }
-  .sv-right { position: relative; flex: 1; width: 100%; min-height: 0; overflow: hidden; padding-bottom: 68px; }
+  .sv-right { position: relative; width: 100%; min-height: 0; overflow: hidden; padding-bottom: 12px; }
   .sv-content-block { position: relative !important; right: auto !important; top: auto !important; width: 88% !important; margin: 7px auto 8px auto !important; }
   .sv-image-area { height: 88px !important; }
   #q3-image-area { display: flex; align-items: center; justify-content: center; height: 170px !important; overflow: hidden; }
   #q3-clip-window { width: 200px !important; height: 154px !important; }
   #q3-scene { transform: scale(0.385) !important; transform-origin: top left !important; }
-  #survey-scroller { display: none !important; }
-  .mobile-nav { display: flex !important; justify-content: center; align-items: center; padding: 10px 24px 18px 24px; flex-shrink: 0; }
+  /* #survey-scroller stays visible on mobile */
+  /* mobile-nav hidden on mobile, using scroller instead */
   .mobile-nav-btn { font-size: 14px; padding: 11px 26px; }
   .sv-heading { font-size: 16px !important; }
   .sv-body { font-size: 12px !important; line-height: 1.5 !important; }
@@ -283,7 +218,7 @@
   #survey-wrap { height: 100vh; height: 100svh; max-height: 820px !important; transform: translateZ(0); overflow: hidden !important; }
   .sv-panel { height: 100%; min-height: unset !important; position: relative !important; }
   .sv-panel[style*="justify-content:center"] { justify-content: flex-start !important; padding-top: 40px !important; }
-  .corner-btn { display: block !important; position: fixed !important; bottom: 20px !important; }
+  .corner-btn { display: none !important; }
   .sv-heading { font-size: clamp(13px, 4vw, 18px) !important; }
   .sv-body { font-size: clamp(11px, 3vw, 14px) !important; line-height: 1.5 !important; }
   .sv-step { font-size: clamp(9px, 2.5vw, 12px) !important; }
@@ -319,6 +254,48 @@
 
 #q2-coin { transform: scale(0.95); transform-origin: bottom center; }
 .bubble-text-inner { font-family: 'Bangers', cursive; font-size: 23px; font-weight: 400; letter-spacing: 0.03em; color: #333; line-height: 1.55; text-align: left; width: 100%; }
+
+/* ── Mobile in-flow nav rows ── */
+.mob-nav-row { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .mob-nav-row {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 36px 24px !important;
+    box-sizing: border-box;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  .mob-pusher { display: none !important; }
+  .mob-btn {
+    background: #e8e4dc !important;
+    color: #5a5a5a !important;
+    border: none !important;
+    border-radius: 99px !important;
+    font-family: 'Instrument Sans', Arial, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    padding: 14px 27px !important;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13) !important;
+    min-width: 82px !important;
+    text-align: center !important;
+    transition: background 0.12s, color 0.12s;
+    display: inline-block !important;
+    position: static !important;
+    width: auto !important;
+  }
+  .mob-btn.mob-active { background: #EF9F27 !important; color: #fff !important; }
+  .mob-btn-ghost { visibility: hidden; pointer-events: none; }
+  .sv-right { padding-bottom: 86px !important; }
+  #survey-scroller { display: none !important; }
+}
 </style>
 
 <div id="survey-wrap">
@@ -351,7 +328,7 @@
       <div class="sv-panel">
         <div class="sv-left">
           <div class="sv-step">Question 1 of 2</div>
-          <div class="sv-heading" id="q3-heading-mobile">If you were to invest into <span class="term-trigger" id="q3-infra-term"><span class="term-underline">sustainable infrastructure</span><span class="term-tooltip" style="padding:16px 18px !important;">Sustainable infrastructure includes clean power generation and transmission, affordable housing, healthcare facilities, and education facilities.</span></span>, what would the <span class="term-trigger" id="q3-term"><span class="term-underline">bond</span><span class="term-tooltip" style="padding:16px 18px !important;width:260px !important;">When you invest in a bond, the money is loaned to a company for a set duration. The company uses the money to complete some sort of project, and pays you a percentage of the amount you invested on an annual basis, in addition to returning the full amount on the bond's end date.</span></span> you use to do it ideally look like?</div>
+          <div class="sv-heading" id="q3-heading-mobile">If you were to invest into building <span class="term-trigger" id="q3-infra-term"><span class="term-underline">sustainable infrastructure</span><span class="term-tooltip" style="padding:16px 18px !important;">Sustainable infrastructure includes power generation and transmission, housing and community amenities, and healthcare and education facilities.</span></span>, what would you look for in an ideal <span class="term-trigger" id="q3-term"><span class="term-underline">bond</span><span class="term-tooltip" style="padding:16px 18px !important;width:260px !important;">When you invest in a bond, the money is loaned to a company for a set duration. The company uses the money to complete some sort of project, and pays you a percentage of the amount you invested on an annual basis, in addition to returning the full amount on the bond's end date.</span></span>?</div>
         </div>
         <div class="sv-right">
           <div class="sv-content-block">
@@ -434,13 +411,18 @@
           </div>
         </div>
         <button class="corner-btn corner-btn-right" onclick="goMobile(1);">Next</button>
+        <div class="mob-pusher" id="mob-pusher-q1"></div>
+        <div class="mob-nav-row">
+          <span class="mob-btn mob-btn-ghost">Back</span>
+          <button class="mob-btn" onclick="goMobile(1);">Next</button>
+        </div>
       </div>
 
 
       <div class="sv-panel">
         <div class="sv-left">
           <div class="sv-step">Question 2 of 2</div>
-          <div class="sv-heading">What's the approximate size of your total <span class="term-trigger" id="q1-term"><span class="term-underline">investable assets</span><span class="term-tooltip" style="padding:16px 18px !important;">Investable assets include cash, funds in your bank and retirement accounts, mutual funds, stocks, and bonds. It does not include real estate assets.</span></span>, and how much would you invest into your ideal sustainable infrastructure bond?</div>
+          <div class="sv-heading">What's the approximate size of your total <span class="term-trigger" id="q1-term"><span class="term-underline">investable assets</span><span class="term-tooltip" style="padding:16px 18px !important;">Investable assets include cash, funds in your bank and retirement accounts, mutual funds, stocks, and bonds. It does not include real estate assets.</span></span>, and how much would you invest into the sustainable infrastructure bond you described?</div>
         </div>
         <div class="sv-right">
           <div class="sv-content-block">
@@ -500,8 +482,8 @@
               </div>
 
               <div id="q2-info-box" style="display:none;flex-direction:column;gap:5px;margin-top:8px;align-items:center;width:100%;">
-                <div class="q2-info-pill" id="q2-info-0" style="display:none;"><span>At this share, you're beating the share invested by asset managers in Canada <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></span></div>
-                <div class="q2-info-pill" id="q2-info-1" style="display:none;"><span>At this share, we'd immediately meet Canada's clean energy and affordable housing investment needs <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></span></div>
+                <div class="q2-info-pill" id="q2-info-0" style="visibility:hidden;"><span>At this share, you're beating the share invested by asset managers in Canada <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></span></div>
+                <div class="q2-info-pill" id="q2-info-1" style="visibility:hidden;"><span>At this share, we'd immediately meet Canada's clean energy and affordable housing investment needs <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></span></div>
               </div>
             </div>
 
@@ -510,6 +492,11 @@
         </div>
         <button class="corner-btn corner-btn-left" onclick="goMobile(0);">Back</button>
         <button class="corner-btn corner-btn-right" onclick="goMobile(2);">Next</button>
+        <div class="mob-pusher" id="mob-pusher-q2"></div>
+        <div class="mob-nav-row">
+          <button class="mob-btn" onclick="goMobile(0);">Back</button>
+          <button class="mob-btn" onclick="goMobile(2);">Next</button>
+        </div>
       </div>
 
 
@@ -558,6 +545,11 @@
 
 
         <button class="corner-btn corner-btn-left" id="submit-back-btn">Back</button>
+        <div class="mob-pusher" id="mob-pusher-submit"></div>
+        <div class="mob-nav-row" id="submit-mob-nav-row">
+          <button class="mob-btn" id="submit-back-mob">Back</button>
+          <button class="mob-btn" id="submit-submit-mob"><span class="mob-btn-label">Submit</span></button>
+        </div>
         <button class="corner-btn corner-btn-right" id="submit-btn-mob">Submit<span id="submit-tooltip-mob" style="display:none;position:absolute;bottom:calc(100% + 10px);right:0;background:#6c6689;color:#fff;font-size:12px;font-weight:400;line-height:1.5;border-radius:10px;padding:12px 16px;width:220px;text-align:left;white-space:normal;z-index:30;pointer-events:none;">Please provide a response to all questions, a valid email address, and agree to the Contest Rules and Privacy Policy before submitting.</span></button>
       </div>
 
@@ -612,7 +604,7 @@
       }
       document.getElementById('survey-scroller').style.display = 'none';
     } else if(z === 1){
-      document.getElementById('survey-scroller').style.display = isMob ? 'none' : 'flex';
+      document.getElementById('survey-scroller').style.display = 'flex';
       updateSurveyPanel(surveyPanel);
     } else {
       if(isMob){
@@ -869,14 +861,14 @@
     var info1=document.getElementById('q2-info-1');
     if(info0 && info1){
       if(v >= 50){
-        info0.style.display = 'none';
-        info1.style.display = 'flex'; info1.classList.add('active');
+        info0.style.visibility = 'hidden';
+        info1.style.visibility = 'visible'; info1.classList.add('active');
       } else if(v >= 10){
-        info1.style.display = 'none';
-        info0.style.display = 'flex'; info0.classList.add('active');
+        info1.style.visibility = 'hidden';
+        info0.style.visibility = 'visible'; info0.classList.add('active');
       } else {
-        info0.style.display = 'none';
-        info1.style.display = 'none';
+        info0.style.visibility = 'hidden';
+        info1.style.visibility = 'hidden';
       }
     }
 
@@ -1136,7 +1128,7 @@
   });
 
   function resetCornerBtns(){
-    document.querySelectorAll('.corner-btn').forEach(function(b){ b.style.background=''; b.style.color=''; b.style.pointerEvents=''; });
+    document.querySelectorAll('.corner-btn, .mob-btn').forEach(function(b){ b.classList.remove('mob-active'); b.style.background=''; b.style.color=''; b.style.pointerEvents=''; });
   }
   function lockCornerBtns(){
     document.querySelectorAll('.corner-btn').forEach(function(b){ b.style.pointerEvents='none'; });
@@ -1144,18 +1136,23 @@
   function unlockCornerBtns(){
     document.querySelectorAll('.corner-btn').forEach(function(b){ b.style.pointerEvents=''; });
   }
-  document.querySelectorAll('.corner-btn').forEach(function(btn){
+  document.querySelectorAll('.corner-btn, .mob-btn').forEach(function(btn){
     btn.addEventListener('touchstart', function(e){
       if(stepperActive) return;
+      this.classList.add('mob-active');
       this.style.background='#EF9F27'; this.style.color='#fff';
     }, {passive:true});
     btn.addEventListener('touchend', function(){
-      var s=this; setTimeout(function(){ s.style.background=''; s.style.color=''; }, 150);
+      var s=this; setTimeout(function(){ s.classList.remove('mob-active'); s.style.background=''; s.style.color=''; }, 150);
     }, {passive:true});
   });
 
   var submitBackBtn = document.getElementById('submit-back-btn');
   if(submitBackBtn){ submitBackBtn.addEventListener('click', function(){ goMobile(1); }); }
+  var submitBackMob = document.getElementById('submit-back-mob');
+  if(submitBackMob){ submitBackMob.addEventListener('click', function(){ goMobile(1); }); }
+  var submitSubmitMob = document.getElementById('submit-submit-mob');
+  if(submitSubmitMob){ submitSubmitMob.addEventListener('click', function(e){ handleSubmitClick(e); }); }
 
   var beginBtn = document.getElementById('begin-btn');
   if(beginBtn){
@@ -1195,9 +1192,9 @@
   }
 
   var submitBtn = document.getElementById('submit-btn');
-  var submitBtnMob = document.getElementById('submit-btn-mob');
+  var submitBtnMob = IS_MOBILE ? (document.getElementById('submit-submit-mob') || document.getElementById('submit-btn-mob')) : document.getElementById('submit-btn-mob');
   var submitTooltip = document.getElementById('submit-tooltip');
-  var submitTooltipMob = document.getElementById('submit-tooltip-mob');
+  var submitTooltipMob = null; // mobile uses gTT global tooltip instead
   var isMobSubmit = IS_MOBILE;
 
   var activeSubmitBtn = isMobSubmit ? submitBtnMob : submitBtn;
@@ -1214,7 +1211,7 @@
 
     var lastSubmit = localStorage.getItem('survey_submitted');
     if(SUBMISSION_LOCK && lastSubmit && (Date.now() - parseInt(lastSubmit)) < 24*60*60*1000){
-      if(activeSubmitBtn){ activeSubmitBtn.textContent = 'Already submitted!'; activeSubmitBtn.style.background = '#9BAAA8'; activeSubmitBtn.style.color = '#fff'; }
+      if(activeSubmitBtn){ var lbl=activeSubmitBtn.querySelector('.mob-btn-label'); if(lbl) lbl.textContent='Already submitted!'; else activeSubmitBtn.textContent='Already submitted!'; activeSubmitBtn.style.background = '#9BAAA8'; activeSubmitBtn.style.color = '#fff'; }
       return;
     }
 
@@ -1229,8 +1226,27 @@
 
     if(!q1Done || !q2Done || !q3TermDone || !q3RiskDone || !validEmail || !policy){
       if(isMobSubmit){
-        if(activeTooltip) activeTooltip.style.display = 'block';
-        if(activeSubmitBtn){ activeSubmitBtn.style.background = '#EF9F27'; activeSubmitBtn.style.color = '#fff'; }
+        // Show error via global tooltip above the submit button
+        var mobSubmitEl = document.getElementById('submit-submit-mob');
+        if(mobSubmitEl && gTT){
+          gTT.textContent = 'Please fill in all questions, provide a valid email, and agree to the Contest Rules and Privacy Policy.';
+          gTT.style.width = '220px';
+          gTT.style.padding = '12px 16px';
+          gTT.style.display = 'block';
+          var r = mobSubmitEl.getBoundingClientRect();
+          var ttW = 220, margin = 8;
+          // Anchor to top-left of button — opens leftward/upward, stays on screen
+          var left = Math.max(margin, r.left - ttW + r.width);
+          gTT.style.left = left + 'px';
+          gTT.style.top = '0px'; // temporary so offsetHeight is measured
+          setTimeout(function(){
+            var h = gTT.offsetHeight;
+            gTT.style.top = (mobSubmitEl.getBoundingClientRect().top - h - 10) + 'px';
+          }, 0);
+          setTimeout(function(){ gTT.style.display = 'none'; }, 2500);
+        }
+        if(activeSubmitBtn){ activeSubmitBtn.style.background = '#EF9F27'; activeSubmitBtn.style.color = '#fff';
+          setTimeout(function(){ activeSubmitBtn.style.background = ''; activeSubmitBtn.style.color = ''; }, 2500); }
       } else {
         errEl.style.display = 'block';
       }
@@ -1442,17 +1458,29 @@
     }
   }, {passive: true});
 
+  // ── Ensure all panels share the same height as the survey wrap ──
+  function setPanelHeights() {
+    if (!IS_MOBILE) return;
+    var wrap = document.getElementById('survey-wrap');
+    var h = wrap ? wrap.offsetHeight : 0;
+    if (h < 100) return;
+    document.querySelectorAll('.sv-panel').forEach(function(p) {
+      p.style.minHeight = h + 'px';
+      p.style.height    = h + 'px';
+    });
+  }
+  setTimeout(setPanelHeights, 0);
+  window.addEventListener('load', setPanelHeights);
+  window.addEventListener('resize', setPanelHeights);
+
 })();</script>
 
-    <!-- ═══════════ / SURVEY WIDGET ═══════════ -->
-  </div>
+<style>@media (hover: none) and (pointer: coarse) { #survey-scroller { border-radius: 0 28px 28px 0; } #survey-wrap { border-radius: 28px; } }</style>
 
+  </div>
   <footer>
     <span>&copy; 2025 Greenback Revolution. All rights reserved.</span>
-    <span>
-      <a href="#">Contest Rules</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">Privacy Policy</a>
-    </span>
+    <span><a href="#">Contest Rules</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">Privacy Policy</a></span>
   </footer>
-
 </body>
 </html>
