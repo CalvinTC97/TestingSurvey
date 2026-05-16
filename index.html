@@ -23,14 +23,12 @@
     footer { margin-top: auto; border-top: 1px solid rgba(0,0,0,0.07); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #999; background: #e2e0da; }
     footer a { color: #8B7EC8; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    @media (max-width: 600px) { nav { padding: 0 16px; } .nav-links { display: none; } .hero { padding: 32px 20px 24px; } footer { flex-direction: column; gap: 6px; text-align: center; } }
-
-    /* Offset survey wrap by nav height on mobile so buttons aren't clipped */
-    @media (hover: none) and (pointer: coarse) {
-      #survey-wrap {
-        height: calc(100svh - 56px) !important;
-        max-height: calc(100svh - 56px) !important;
-      }
+    @media (max-width: 600px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { padding: 32px 20px 24px; }
+      footer { flex-direction: column; gap: 6px; text-align: center; }
+      #survey-wrap .sv-panel { min-height: calc(100svh - 56px) !important; }
     }
   </style>
 </head>
@@ -78,20 +76,7 @@
       }
     });
   }
-  // ── Ensure all panels share the same height as the survey wrap ──
-  function setPanelHeights() {
-    if (!IS_MOBILE) return;
-    var wrap = document.getElementById('survey-wrap');
-    var h = wrap ? wrap.offsetHeight : 0;
-    if (h < 100) return;
-    document.querySelectorAll('.sv-panel').forEach(function(p) {
-      p.style.minHeight = h + 'px';
-      p.style.height    = h + 'px';
-    });
-  }
-  setTimeout(setPanelHeights, 0);
-  window.addEventListener('load', setPanelHeights);
-  window.addEventListener('resize', setPanelHeights);
+  // panel heights are intrinsic — no JS stamping needed
 
 })();</script>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Bangers&display=swap" rel="stylesheet">
@@ -156,7 +141,7 @@
 
 @media (hover: none) and (pointer: coarse) {
   #survey-wrap { max-width: 100%; border-radius: 28px; }
-  .sv-panel { height: 100svh; min-height: 100svh; flex-direction: column; }
+  .sv-panel { display: flex; flex-direction: column !important; min-height: 100svh; height: auto !important; }
   .sv-left { position: relative !important; top: auto !important; transform: none !important; left: auto !important; width: 100% !important; padding: 20px 24px 8px 24px !important; justify-content: flex-start !important; flex-shrink: 0; }
   .sv-right { position: relative; width: 100%; min-height: 0; overflow: hidden; padding-bottom: 12px; }
   .sv-content-block { position: relative !important; right: auto !important; top: auto !important; width: 88% !important; margin: 7px auto 8px auto !important; }
@@ -204,8 +189,8 @@
   #submit-contact, #submit-policy { width: 19px !important; height: 19px !important; margin-left: -2px; }
   #submit-contact span, #submit-policy span { padding-left: 6px; }
   #submit-btn { margin-top: 2px !important; }
-  #survey-wrap { height: 100vh; height: 100svh; max-height: 820px !important; transform: translateZ(0); overflow: hidden !important; }
-  .sv-panel { height: 100%; min-height: unset !important; position: relative !important; }
+  #survey-wrap { height: auto !important; max-height: none !important; overflow: hidden !important; transform: translateZ(0); border-radius: 28px; }
+  .sv-panel { position: relative !important; }
   .sv-panel[style*="justify-content:center"] { justify-content: flex-start !important; padding-top: 40px !important; }
   .corner-btn { display: none !important; }
   .sv-heading { font-size: clamp(13px, 4vw, 18px) !important; }
@@ -253,12 +238,11 @@
     align-items: center;
     padding: 12px 36px 24px !important;
     box-sizing: border-box;
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    flex-shrink: 0;
+    width: 100% !important;
+    align-self: stretch !important;
   }
-  .mob-pusher { display: none !important; }
+  .mob-pusher { display: block !important; flex: 1 !important; min-height: 16px; }
   .mob-btn {
     background: #e8e4dc !important;
     color: #5a5a5a !important;
@@ -282,7 +266,7 @@
   }
   .mob-btn.mob-active { background: #EF9F27 !important; color: #fff !important; }
   .mob-btn-ghost { visibility: hidden; pointer-events: none; }
-  .sv-right { padding-bottom: 86px !important; }
+  .sv-right { padding-bottom: 12px !important; }
   #survey-scroller { display: none !important; }
 }
 </style>
@@ -1446,20 +1430,7 @@
     }
   }, {passive: true});
 
-  // ── Ensure all panels share the same height as the survey wrap ──
-  function setPanelHeights() {
-    if (!IS_MOBILE) return;
-    var wrap = document.getElementById('survey-wrap');
-    var h = wrap ? wrap.offsetHeight : 0;
-    if (h < 100) return;
-    document.querySelectorAll('.sv-panel').forEach(function(p) {
-      p.style.minHeight = h + 'px';
-      p.style.height    = h + 'px';
-    });
-  }
-  setTimeout(setPanelHeights, 0);
-  window.addEventListener('load', setPanelHeights);
-  window.addEventListener('resize', setPanelHeights);
+  // panel heights are intrinsic — no JS stamping needed
 
 })();</script>
 
