@@ -7,25 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Instrument Sans', Arial, sans-serif;
-      background: #e8e6e0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    nav {
-      width: 100%; padding: 0 32px; height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(232,230,224,0.92); backdrop-filter: blur(8px);
-      position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid rgba(0,0,0,0.07);
-    }
+    body { font-family: 'Instrument Sans', Arial, sans-serif; background: #e8e6e0; min-height: 100vh; display: flex; flex-direction: column; }
+    nav { width: 100%; padding: 0 32px; height: 56px; display: flex; align-items: center; justify-content: space-between; background: rgba(232,230,224,0.92); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.07); }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo-mark { width: 28px; height: 28px; background: linear-gradient(135deg,#8B7EC8,#96C4A8); border-radius: 8px; }
     .nav-wordmark { font-size: 14px; font-weight: 600; color: #3a3a3a; letter-spacing: 0.01em; }
     .nav-links { display: flex; gap: 28px; }
-    .nav-links a { font-size: 13px; font-weight: 500; color: #5a5a5a; text-decoration: none; letter-spacing: 0.01em; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: #5a5a5a; text-decoration: none; }
     .nav-links a:hover { color: #3a3a3a; }
     .hero { text-align: center; padding: 52px 24px 36px; }
     .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #8B7EC8; margin-bottom: 14px; }
@@ -35,11 +23,14 @@
     footer { margin-top: auto; border-top: 1px solid rgba(0,0,0,0.07); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #999; background: #e2e0da; }
     footer a { color: #8B7EC8; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    @media (max-width: 600px) {
-      nav { padding: 0 16px; }
-      .nav-links { display: none; }
-      .hero { padding: 32px 20px 24px; }
-      footer { flex-direction: column; gap: 6px; text-align: center; }
+    @media (max-width: 600px) { nav { padding: 0 16px; } .nav-links { display: none; } .hero { padding: 32px 20px 24px; } footer { flex-direction: column; gap: 6px; text-align: center; } }
+
+    /* Offset survey wrap by nav height on mobile so buttons aren't clipped */
+    @media (hover: none) and (pointer: coarse) {
+      #survey-wrap {
+        height: calc(100svh - 56px) !important;
+        max-height: calc(100svh - 56px) !important;
+      }
     }
   </style>
 </head>
@@ -50,15 +41,13 @@
       <span class="nav-wordmark">Greenback Revolution</span>
     </div>
     <div class="nav-links">
-      <a href="#">About</a>
-      <a href="#">Resources</a>
-      <a href="#">Contact</a>
+      <a href="#">About</a><a href="#">Resources</a><a href="#">Contact</a>
     </div>
   </nav>
   <div class="hero">
     <div class="hero-eyebrow">Survey</div>
     <h1 class="hero-title">Investing for Impact</h1>
-    <p class="hero-sub">Where you put your money matters. Tell us about the kind of impact you'd like to have, and win up to&nbsp;<strong>$1,000</strong> to invest into sustainable projects.</p>
+    <p class="hero-sub">Where you put your money matters. Tell us about the kind of impact you’d like to have, and win up to <strong>$1,000</strong> to invest into sustainable projects.</p>
   </div>
   <div class="survey-shell">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -252,7 +241,7 @@
 .term-tooltip { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #6c6689; border: none; border-radius: 10px; padding: 12px 16px; font-size: 12px; font-weight: 400; color: #fff; line-height: 1.5; width: 220px; pointer-events: none; z-index: 100; white-space: normal; }
 /* tooltips shown via global-tooltip JS */
 
-#q2-coin { transform: scale(0.95); transform-origin: bottom center; }
+#q2-coin { transform: scale(0.874); transform-origin: bottom center; }
 .bubble-text-inner { font-family: 'Bangers', cursive; font-size: 23px; font-weight: 400; letter-spacing: 0.03em; color: #333; line-height: 1.55; text-align: left; width: 100%; }
 
 /* ── Mobile in-flow nav rows ── */
@@ -482,8 +471,7 @@
               </div>
 
               <div id="q2-info-box" style="display:none;flex-direction:column;gap:5px;margin-top:8px;align-items:center;width:100%;">
-                <div class="q2-info-pill" id="q2-info-0" style="visibility:hidden;"><span>At this share, you're beating the share invested by asset managers in Canada <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></span></div>
-                <div class="q2-info-pill" id="q2-info-1" style="visibility:hidden;"><span>At this share, we'd immediately meet Canada's clean energy and affordable housing investment needs <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></span></div>
+                <div class="q2-info-pill" id="q2-info-single" style="visibility:hidden;"><span id="q2-info-msg"></span> <a href="https://docs.google.com/spreadsheets/d/1WBCyGlggDZOq1KnVzLqjxdO6lQ5aULVpWxxVmN-lJCI/edit?usp=sharing" onclick="window.open(this.href,'_blank');return false;" target="_blank" style="text-decoration:underline;color:inherit;">(Methodology)</a></div>
               </div>
             </div>
 
@@ -857,18 +845,18 @@
       }
     }
 
-    var info0=document.getElementById('q2-info-0');
-    var info1=document.getElementById('q2-info-1');
-    if(info0 && info1){
+    var infoSingle = document.getElementById('q2-info-single');
+    var infoMsg    = document.getElementById('q2-info-msg');
+    if(infoSingle && infoMsg){
       if(v >= 50){
-        info0.style.visibility = 'hidden';
-        info1.style.visibility = 'visible'; info1.classList.add('active');
+        infoMsg.textContent = "At this share, we’d immediately meet Canada’s clean energy and affordable housing investment needs ";
+        infoSingle.style.visibility = 'visible'; infoSingle.classList.add('active');
       } else if(v >= 10){
-        info1.style.visibility = 'hidden';
-        info0.style.visibility = 'visible'; info0.classList.add('active');
+        infoMsg.textContent = "At this share, you’re beating the share invested by asset managers in Canada ";
+        infoSingle.style.visibility = 'visible'; infoSingle.classList.add('active');
       } else {
-        info0.style.visibility = 'hidden';
-        info1.style.visibility = 'hidden';
+        infoSingle.style.visibility = 'hidden';
+        infoSingle.classList.remove('active');
       }
     }
 
@@ -1476,11 +1464,10 @@
 })();</script>
 
 <style>@media (hover: none) and (pointer: coarse) { #survey-scroller { border-radius: 0 28px 28px 0; } #survey-wrap { border-radius: 28px; } }</style>
-
   </div>
   <footer>
     <span>&copy; 2025 Greenback Revolution. All rights reserved.</span>
-    <span><a href="#">Contest Rules</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">Privacy Policy</a></span>
+    <span><a href="#">Contest Rules</a> &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a></span>
   </footer>
 </body>
 </html>
