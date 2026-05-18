@@ -24,8 +24,7 @@
     footer a { color: #8B7EC8; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
     @media (max-width: 600px) {
-      nav { padding: 0 16px; }
-      .nav-links { display: none; }
+      nav { padding: 0 16px; } .nav-links { display: none; }
       .hero { padding: 32px 20px 24px; }
       footer { flex-direction: column; gap: 6px; text-align: center; }
       #survey-wrap .sv-panel { min-height: calc(100svh - 56px) !important; }
@@ -365,10 +364,10 @@
                 <div style="position:relative;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:99px;padding:3px;cursor:pointer;user-select:none;" id="q3-risk-pill">
                   <div style="height:18px;position:relative;display:flex;align-items:center;">
                     <span style="position:absolute;left:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">0%</span>
-                    <span style="position:absolute;right:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">1%</span>
+                    <span style="position:absolute;right:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);">2%</span>
                   </div>
                   <div style="position:absolute;top:3px;height:calc(100% - 6px);width:28px;background:#fff;border-radius:99px;pointer-events:none;z-index:2;" id="q3-risk-thumb"></div>
-                  <input type="range" min="0" max="5" value="0" step="1" id="q3-risk-range" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;margin:0;z-index:3;">
+                  <input type="range" min="0" max="4" value="0" step="1" id="q3-risk-range" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;margin:0;z-index:3;">
                 </div>
                 </div>
 
@@ -978,12 +977,12 @@
   function updateRisk(){
     var v=parseInt(riskRange.value), wW=riskPill.clientWidth;
     var trackW=wW-PD3*2-TW3;
-    riskThumb.style.left=(PD3+(v/5)*trackW)+'px';
-    if(q3RiskInteracted) riskDisplay.textContent=(v*0.2).toFixed(1)+'% risk of losing investment';
+    riskThumb.style.left=(PD3+(v/4)*trackW)+'px';
+    if(q3RiskInteracted) riskDisplay.textContent=(v*0.5).toFixed(1)+'% risk annually of losing investment';
     var fill=document.getElementById('q3-risk-progress-fill');
     var prog=document.getElementById('q3-risk-progress');
     if(prog && q3RiskInteracted) prog.classList.add('visible');
-    if(fill) fill.style.width=(v/5*100)+'%';
+    if(fill) fill.style.width=(v/4*100)+'%';
   }
 
   var q3RiskInteracted = false;
@@ -1090,7 +1089,7 @@
   }
 
   wireQ3Stepper('q3-term-minus','q3-term-plus', termRange, 3, 7, onTermInteract, updateTerm);
-  wireQ3Stepper('q3-risk-minus','q3-risk-plus', riskRange, 0, 5, onRiskInteract, updateRisk);
+  wireQ3Stepper('q3-risk-minus','q3-risk-plus', riskRange, 0, 4, onRiskInteract, updateRisk);
 
   document.querySelectorAll('.mobile-nav-btn').forEach(function(btn){
     btn.addEventListener('touchstart', function(){ this.style.background='#EF9F27'; this.style.color='#fff'; }, {passive:true});
@@ -1274,7 +1273,7 @@
   document.addEventListener('touchstart', function(){ closeSubmitTooltip(); }, {passive:true});
 
   window.q3TermValue = function(){ return parseInt(termRange.value); };
-  window.q3RiskValue = function(){ return parseFloat(riskRange.value)*0.2; };
+  window.q3RiskValue = function(){ return parseFloat(riskRange.value)*0.5; };
 
   setTimeout(function(){
     [DAM_SAFE, DAM_RISK].forEach(function(u){ new Image().src=u; });
@@ -1285,20 +1284,19 @@
   }, 200);
 
   var RETURN_TABLE = {
-    0.0: { 3: 3.4, 4: 3.7, 5: 4.0, 6: 4.3, 7: 4.6 },
-    0.2: { 3: 3.4, 4: 3.7, 5: 4.1, 6: 4.4, 7: 4.7 },
-    0.4: { 3: 3.4, 4: 3.7, 5: 4.1, 6: 4.4, 7: 4.8 },
-    0.6: { 3: 3.4, 4: 3.8, 5: 4.1, 6: 4.5, 7: 4.8 },
-    0.8: { 3: 3.5, 4: 3.8, 5: 4.1, 6: 4.5, 7: 4.8 },
-    1.0: { 3: 3.5, 4: 3.8, 5: 4.2, 6: 4.5, 7: 4.9 }
+    0.0: { 3: 3.8, 4: 3.9, 5: 4.0, 6: 4.0, 7: 4.1 },
+    0.5: { 3: 4.0, 4: 4.1, 5: 4.2, 6: 4.3, 7: 4.4 },
+    1.0: { 3: 4.3, 4: 4.4, 5: 4.5, 6: 4.6, 7: 4.7 },
+    1.5: { 3: 4.5, 4: 4.7, 5: 4.8, 6: 4.9, 7: 5.0 },
+    2.0: { 3: 4.8, 4: 4.9, 5: 5.1, 6: 5.2, 7: 5.3 }
   };
 
   function calcReturn(riskPct, term) {
-    var riskKey = Math.round(Math.min(1.0, Math.max(0.0, riskPct)) / 0.2) * 0.2;
+    var riskKey = Math.round(Math.min(2.0, Math.max(0.0, riskPct)) / 0.5) * 0.5;
     riskKey = Math.round(riskKey * 10) / 10;
     var termKey = Math.min(7, Math.max(3, Math.round(term)));
     var row = RETURN_TABLE[riskKey];
-    return row ? row[termKey] : 3.7;
+    return row ? row[termKey] : 3.9;
   }
 
   var q3TextEl = document.querySelector('#q3-scene .bubble-text-inner');
@@ -1319,12 +1317,12 @@
   };
 
   function updateBeaverImages(){
-    var riskVal = parseInt(riskRange.value) * 0.2;
+    var riskVal = parseInt(riskRange.value) * 0.5;
     var years = parseInt(termRange.value);
     var ret = calcReturn(riskVal, years);
     var damEl = document.getElementById('q3-dam-img');
     if(damEl){
-      var damSrc = riskVal >= 0.5 ? DAM_RISK : DAM_SAFE;
+      var damSrc = riskVal >= 1.0 ? DAM_RISK : DAM_SAFE;
       if(damEl.src !== damSrc) damEl.src = damSrc;
     }
     var sackEl = document.getElementById('q3-sack-img');
@@ -1336,7 +1334,7 @@
   }
 
   function updateBeaverText(){
-    var riskVal = parseInt(riskRange.value) * 0.2;
+    var riskVal = parseInt(riskRange.value) * 0.5;
     var years = parseInt(termRange.value);
     var ret = calcReturn(riskVal, years);
     var retStr = ret.toFixed(1);
